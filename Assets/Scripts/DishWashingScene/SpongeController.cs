@@ -17,9 +17,10 @@ public class SpongeController : MonoBehaviour
     }
 
     void Update()
-    {                  
-            // ќпредел€ем рассто€ние от камеры до тарелки
-            float distanceToPlate = Mathf.Abs(plate.position.z - mainCamera.transform.position.z);
+    {
+        if (GameManagerDish.isGamePaused) return;
+        // ќпредел€ем рассто€ние от камеры до тарелки
+        float distanceToPlate = Mathf.Abs(plate.position.z - mainCamera.transform.position.z);
 
             // ѕолучаем позицию мыши и устанавливаем Z дл€ ScreenToWorldPoint
             Vector3 mousePos = Input.mousePosition;

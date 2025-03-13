@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class DirtCleaner : MonoBehaviour
 {
-    private Material plateMaterial;
+    private Material dirtMaterial;
     public float eraseSpeed = 0.1f; // Скорость стирания грязи
 
     void Start()
     {
         // Получаем материал тарелки
-        plateMaterial = GetComponent<Renderer>().material;
+        Renderer renderer = GetComponent<Renderer>();
+       // plateMaterial = GetComponent<Renderer>().material;
+        Material[] materials = renderer.materials;
+        dirtMaterial = materials[1];
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Sponge"))
+        if (other.CompareTag("Sponge") && dirtMaterial != null)
         {
-            Debug.Log("Губка касается тарелки!");
-            // Получаем текущий альфа-канал материала грязи
-            Color currentColor = plateMaterial.color;
-            // Снижаем альфа-канал (делаем грязь прозрачной)
+            Debug.Log("Губка чистит тарелку!");
+
+            // Получаем текущий цвет грязи
+            Color currentColor = dirtMaterial.color;
+
+            // Уменьшаем альфа-канал (делаем грязь прозрачной)
             float newAlpha = Mathf.Max(currentColor.a - eraseSpeed * Time.deltaTime, 0f);
-            plateMaterial.color = new Color(currentColor.r, currentColor.g, currentColor.b, newAlpha);
+
+            // Применяем новый цвет
+            dirtMaterial.color = new Color(currentColor.r, currentColor.g, currentColor.b, newAlpha);
         }
     }
 }

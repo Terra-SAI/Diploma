@@ -25,6 +25,7 @@ public class PlaneController : MonoBehaviour
 
     void Update()
     {
+        if (GameManagerDish.isGamePaused) return;
         // Проверяем, была ли нажата левая кнопка мыши (ЛКМ)
         if (Input.GetMouseButtonDown(0))  // 0 — это ЛКМ
         {
