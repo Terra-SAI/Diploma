@@ -17,23 +17,9 @@ public class GameManagerDish : MonoBehaviour
         gameOverText.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
         isGamePaused = false;
-
-        if (plateRenderer == null)
-        {
-            Debug.LogError("Ошибка: Не назначен Renderer тарелки!");
-            return;
-        }
-
         // Получаем материалы тарелки
         Material[] materials = plateRenderer.materials;
-        if (materials.Length > 1)
-        {
-            dirtMaterial = materials[1]; // Материал грязи
-        }
-        else
-        {
-            Debug.LogError("Ошибка: у тарелки нет второго материала (грязи)!");
-        }
+        dirtMaterial = materials[1]; // Материал грязи
 
         // Добавляем слушатель для кнопки
         continueButton.onClick.AddListener(LoadMainScene);

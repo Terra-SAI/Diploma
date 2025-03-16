@@ -11,16 +11,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); // Получаем Rigidbody
+        rb = GetComponent<Rigidbody>(); 
         animator = GetComponent<Animator>();
-        rb.freezeRotation = true; // Отключаем физическое вращение, чтобы управлять вручную
+        rb.freezeRotation = true; 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal"); // Получаем значение горизонтальной оси (A и D или стрелки влево и вправо)
-        float moveVertical = Input.GetAxis("Vertical"); // Получаем значение вертикальной оси (W и S или стрелки вверх и вниз)
+        float moveHorizontal = Input.GetAxis("Horizontal"); 
+        float moveVertical = Input.GetAxis("Vertical"); 
 
         Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical).normalized;
 
@@ -34,9 +34,7 @@ public class PlayerMovement : MonoBehaviour
         else 
         {
             animator.SetBool("isWalking", false);
-         //   animator.CrossFade("idle_stand", 0.1f); 
         }
-            //rb.AddForceAtPosition(movement * playerSpeed, rb.position);
 
 
 
