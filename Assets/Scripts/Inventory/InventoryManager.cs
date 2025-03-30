@@ -96,4 +96,27 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
+    public bool HasItemsWithIds(List<int> itemIds)
+    {
+        foreach (int id in itemIds)
+        {
+            bool found = false;
+            foreach (Item i in item)
+            {
+                if (i.id == id)
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) // Если хотя бы одного предмета нет, возвращаем false
+            {
+                return false;
+            }
+        }
+
+        return true; // Все предметы с нужными ID найдены
+    }
 }

@@ -15,10 +15,12 @@ public class PlaneSceneLoader : MonoBehaviour
         float distance = Vector3.Distance(player.position, transform.position);
         if (distance <= interactionRadius)
         {
+           // Debug.Log("Мы в тарелке");
             canInteract = true;
         }
         else
         {
+            //Debug.Log("Мы не в тарелке");
             canInteract = false;
         }
 

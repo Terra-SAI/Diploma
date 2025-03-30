@@ -25,7 +25,7 @@ public class Dialogue
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    private bool canCommunicate = true;
+    public bool canCommunicate = true;
 
     public void TriggerDialogue()
     {
