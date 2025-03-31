@@ -13,6 +13,10 @@ public class ScenesManager : MonoBehaviour
 {
     [Header("Game Result Panels")]
     [SerializeField] private GameObject winPanel;
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(3);
+    }
 
     /// <summary>
     /// Loads save file

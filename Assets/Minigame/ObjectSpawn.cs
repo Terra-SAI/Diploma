@@ -10,13 +10,14 @@ public class ObjectSpawner : MonoBehaviour
     public float minZHeight = -5f; // Минимальная высота по оси Z
     public float maxZHeight = 0f; // Максимальная высота по оси Z
     public GameObject hiddenObject; // Объект, который становится видимым по завершении игры
+    [SerializeField] private GameObject button;
 
     private List<GameObject> spawnedObjects = new List<GameObject>();
     private GameObject selectedObject = null; // Переменная для хранения первого выбранного объекта
 
     void Start()
     {
-        hiddenObject.SetActive(false); // Скрыть объект в начале игры
+        hiddenObject.SetActive(false);
         SpawnObjects();
     }
 
@@ -80,6 +81,7 @@ public class ObjectSpawner : MonoBehaviour
             {
                 Debug.Log("Все объекты собраны! Игра завершена.");
                 hiddenObject.SetActive(true); // Показать объект по завершении игры
+
             }
         }
         else

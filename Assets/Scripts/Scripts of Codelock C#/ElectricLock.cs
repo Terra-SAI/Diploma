@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ElectricLock : MonoBehaviour
 {
@@ -7,16 +8,19 @@ public class ElectricLock : MonoBehaviour
     [SerializeField] private GameObject _panelField;
     [SerializeField] private int _password = 1234;
 
- //   private Ray _playerRaycast;
-  //  private BoxCollider _boxCollider;
+    [SerializeField] private GameObject _exitButton;  // Ссылка на кнопку выхода
 
-	int countOfNumbers;
+    //   private Ray _playerRaycast;
+    //  private BoxCollider _boxCollider;
+
+    int countOfNumbers;
     bool passwordIsEntered;
 
 	private void Start()
 	{
-		//_boxCollider = GetComponent<BoxCollider>();
-	}
+        _exitButton.SetActive(false);
+        //_boxCollider = GetComponent<BoxCollider>();
+    }
 
 
 
@@ -47,11 +51,22 @@ public class ElectricLock : MonoBehaviour
             _panelField.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
             passwordIsEntered = true;
             Debug.Log("Пароль верный!");
+
+            _exitButton.gameObject.SetActive(true);
         }
         else
         {
             Debug.Log("Пароль неверный, попробуйте снова.");
             ClearText();
         }
+    }
+    public void ExitToScene()
+    {
+        SceneManager.LoadScene(3); 
+    }
+
+    public void ExitToFinalScene()
+    {
+        SceneManager.LoadScene(2);
     }
 }
