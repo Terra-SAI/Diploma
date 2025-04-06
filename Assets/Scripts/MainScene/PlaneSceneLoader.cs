@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlaneSceneLoader : MonoBehaviour
 {
+    [SerializeField] private CamManager camManager;
+    [SerializeField] private GameObject dishCamera;
+    [SerializeField] private GameObject mainCamera;
     [SerializeField] private Transform player;  // Игрок
     [SerializeField] private float interactionRadius = 3f;  // Радиус, на котором можно взаимодействовать с тарелкой
     private bool canInteract = false;  // Флаг, показывающий, можно ли нажимать на тарелку
@@ -35,7 +38,10 @@ public class PlaneSceneLoader : MonoBehaviour
     private void TransitionToScene()
     {
         // Здесь заменяешь "NextScene" на название сцены, на которую нужно перейти
-        SceneManager.LoadScene("DishWashing");
+        //   SceneManager.LoadScene("DishWashing");
+        camManager.Switch(mainCamera, dishCamera);
+       // cameraManager.SwitchToCamera(dishCamera);
+       camManager.isOnDish = true;
     }
 
 }

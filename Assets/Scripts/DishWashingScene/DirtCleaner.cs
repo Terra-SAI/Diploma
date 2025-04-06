@@ -20,7 +20,7 @@ public class DirtCleaner : MonoBehaviour
     {
         if (other.CompareTag("Sponge") && dirtMaterial != null)
         {
-            Debug.Log("Губка чистит тарелку!");
+          //  Debug.Log("Губка чистит тарелку!");
 
             // Получаем текущий цвет грязи
             Color currentColor = dirtMaterial.color;

@@ -5,6 +5,9 @@ using TMPro;
 
 public class GameManagerDish : MonoBehaviour
 {
+    [SerializeField] private CamManager cameraManager;
+    [SerializeField] private GameObject cameraMain;
+    [SerializeField] private GameObject dishCamera;
     [SerializeField] private Renderer plateRenderer; // Ссылка на тарелку
     [SerializeField] private TMP_Text gameOverText; // Текст завершения
    // [SerializeField] private Button continueButton; // Кнопка продолжения
@@ -44,7 +47,12 @@ public class GameManagerDish : MonoBehaviour
 
     public void LoadMainScene()
     {
+       
+        cameraManager.isOnDish = false;
+
+       cameraManager.Switch(dishCamera, cameraMain);
+     
         isGamePaused = false;
-        SceneManager.LoadScene("SampleScene"); // Название основной сцены
+        //  SceneManager.LoadScene("SampleScene"); // Название основной сцены
     }
 }

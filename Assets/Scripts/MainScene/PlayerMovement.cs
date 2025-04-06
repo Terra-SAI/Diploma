@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private CamManager cameraManager;
     [SerializeField] private float playerSpeed = 10f;
     private Animator animator;
     private Rigidbody rb;
@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (cameraManager.isOnDish)
+        {
+            return;
+        }
         float moveHorizontal = Input.GetAxis("Horizontal"); 
         float moveVertical = Input.GetAxis("Vertical"); 
 
