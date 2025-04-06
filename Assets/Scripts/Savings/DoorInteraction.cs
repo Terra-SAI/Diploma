@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class DoorInteraction : MonoBehaviour
 {
+    [SerializeField] private GameManagerDish dishManager;
     public InventoryManager inventoryManager;
     public dialog_new_trigger dialog; // UI диалога
-    public bool canPass = false; // Булевая переменная, которая проверяет, можно ли пройти
+    public bool canPass = false;
   //  public Collider doorCollider; // Коллайдер двери
     private bool playerNearby = false; // Флаг, чтобы знать, что игрок рядом с дверью
     [SerializeField] private List<int> requiredItemIds = new List<int> { 1, 2 };
+   
 
     private void Start()
     {
@@ -22,7 +24,7 @@ public class DoorInteraction : MonoBehaviour
         // Проверяем, нажата ли ЛКМ и игрок рядом с дверью
         if (playerNearby && Input.GetMouseButtonDown(0)) // ЛКМ = 0
         {
-            if (inventoryManager.HasItemsWithIds(requiredItemIds))
+            if (inventoryManager.HasItemsWithIds(requiredItemIds) && dishManager.isFinished)
             {
                 // Если можно пройти, снимаем коллайдер с двери
                 SceneManager.LoadScene(2);

@@ -712,6 +712,7 @@ Transform:
   - {fileID: 1912407316}
   - {fileID: 1666334432}
   - {fileID: 633897355}
+  - {fileID: 1152910337}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &173662686
@@ -1619,6 +1620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff32b3f7aa66964cae12d1d9f59bc74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dishManager: {fileID: 2021446892}
   inventoryManager: {fileID: 470041893}
   dialog: {fileID: 1543229849}
   canPass: 0
@@ -3912,6 +3914,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3982396071153996935, guid: d50da4462b5553842b993e5a7b1801b8, type: 3}
   m_PrefabInstance: {fileID: 1991668318}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1152910336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1152910337}
+  m_Layer: 0
+  m_Name: EndLevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1152910337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152910336}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 171631091}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1156217651 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 12835b215655a3a4a977598bf3c16b47, type: 3}
@@ -4082,7 +4115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1189563827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5103,6 +5136,11 @@ MonoBehaviour:
         icon: {fileID: 21300000, guid: 598845b34210cd44786db5f21a47a92a, type: 3}
       line: "\u041D\u0443\u0436\u043D\u043E \u0441\u043E\u0431\u0440\u0430\u0442\u044C
         \u043E\u0431\u0435\u0434"
+    - character:
+        name: "\u0422\u043E\u043C\u0430"
+        icon: {fileID: 21300000, guid: 598845b34210cd44786db5f21a47a92a, type: 3}
+      line: "\u0418 \u043D\u0435 \u0437\u0430\u0431\u044B\u0442\u044C \u043F\u043E\u043C\u044B\u0442\u044C
+        \u043F\u043E\u0441\u0443\u0434\u0443"
 --- !u!4 &1543229850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 17cbbc0be1d906f40802de9896777b01, type: 3}
@@ -6333,7 +6371,9 @@ MonoBehaviour:
   cameraMain: {fileID: 862794026}
   dishCamera: {fileID: 2103402414}
   plateRenderer: {fileID: 1807978052}
-  gameOverText: {fileID: 0}
+  gameOverText: {fileID: 1060920499}
+  continueButton: {fileID: 1189563826}
+  isFinished: 0
 --- !u!1001 &2060719625
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,29 +10,31 @@ public class GameManagerDish : MonoBehaviour
     [SerializeField] private GameObject dishCamera;
     [SerializeField] private Renderer plateRenderer; // Ссылка на тарелку
     [SerializeField] private TMP_Text gameOverText; // Текст завершения
-   // [SerializeField] private Button continueButton; // Кнопка продолжения
+    [SerializeField] private GameObject continueButton; // Кнопка продолжения
     private Material dirtMaterial; // Материал грязи
     public static bool isGamePaused = false;
+    public bool isFinished = false;
 
     void Start()
     {
         // Прячем UI элементы
         gameOverText.gameObject.SetActive(false);
-      //  continueButton.gameObject.SetActive(false);
+        continueButton.gameObject.SetActive(false);
         isGamePaused = false;
         // Получаем материалы тарелки
         Material[] materials = plateRenderer.materials;
         dirtMaterial = materials[1]; // Материал грязи
-
-        // Добавляем слушатель для кнопки
-      //  continueButton.onClick.AddListener(LoadMainScene);
     }
 
     void Update()
     {
+        if (!cameraManager.isOnDish)
+        {
+            return;
+        }
         if (dirtMaterial != null && dirtMaterial.color.a <= 0f)
         {
-            Debug.Log("Тарелка чистая! Мини-игра завершена.");
+           isFinished = true;
             ShowEndScreen();
         }
     }
@@ -40,7 +42,7 @@ public class GameManagerDish : MonoBehaviour
     void ShowEndScreen()
     {
         gameOverText.gameObject.SetActive(true);
-      //  continueButton.gameObject.SetActive(true);
+        continueButton.gameObject.SetActive(true);
         gameOverText.text = "Тарелка чистая!";
         isGamePaused = true;
     }
@@ -49,10 +51,11 @@ public class GameManagerDish : MonoBehaviour
     {
        
         cameraManager.isOnDish = false;
+        gameOverText.gameObject.SetActive(false);
+        continueButton.gameObject.SetActive(false);
 
-       cameraManager.Switch(dishCamera, cameraMain);
+        cameraManager.Switch(dishCamera, cameraMain);
      
         isGamePaused = false;
-        //  SceneManager.LoadScene("SampleScene"); // Название основной сцены
     }
 }
