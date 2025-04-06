@@ -4,27 +4,14 @@ using UnityEngine;
 
 public class PlaneController : MonoBehaviour
 {
-   // [SerializeField] private float rotationSpeed = 50f;
-
-    // void Update()
-    // {
-    // Вращаем тарелку вокруг оси Y при нажатии клавиш Q и E
-    //   if (Input.GetKey(KeyCode.Q))
-    // {
-    //    transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
-    // }
-    //if (Input.GetKey(KeyCode.E))
-    //    {
-    //    transform.Rotate(Vector3.down, rotationSpeed * Time.deltaTime);
-    //  }
-    // }
-
+    [SerializeField] private CamManager manager;
     private bool isRotating = false;  // Флаг, который будет отслеживать, вращается ли тарелка
     private float targetAngle = 0f;  // Целевой угол, на который мы хотим повернуть тарелку
     [SerializeField] private float rotationSpeed = 5f;  // Скорость вращения тарелки
 
     void Update()
     {
+        if (!manager.isOnDish) return;
         if (GameManagerDish.isGamePaused) return;
         // Проверяем, была ли нажата левая кнопка мыши (ЛКМ)
         if (Input.GetMouseButtonDown(0))  // 0 — это ЛКМ

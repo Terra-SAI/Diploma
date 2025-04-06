@@ -14,11 +14,6 @@ public class DoorInteraction : MonoBehaviour
     [SerializeField] private List<int> requiredItemIds = new List<int> { 1, 2 };
    
 
-    private void Start()
-    {
-        //doorCollider = GetComponent<Collider>();
-    }
-
     private void Update()
     {
         // Проверяем, нажата ли ЛКМ и игрок рядом с дверью
@@ -27,7 +22,7 @@ public class DoorInteraction : MonoBehaviour
             if (inventoryManager.HasItemsWithIds(requiredItemIds) && dishManager.isFinished)
             {
                 // Если можно пройти, снимаем коллайдер с двери
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(1);
             }
             else
             {
