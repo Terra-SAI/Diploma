@@ -5,57 +5,76 @@ using UnityEngine.SceneManagement;
 
 public class PlaneSceneLoader : MonoBehaviour
 {
-    [SerializeField] private CamManager camManager;
-    [SerializeField] private GameObject dishCamera;
-    [SerializeField] private GameObject mainCamera;
-   // [SerializeField] private Transform player;  // Игрок
-  //  [SerializeField] private float interactionRadius = 3f;  // Радиус, на котором можно взаимодействовать с тарелкой
-    private bool playerNearby = false; // Флаг, чтобы знать, что игрок рядом с дверью
-
+    [SerializeField] private Camera camera;
     void Update()
     {
-        //// Проверка, в радиусе ли игрок
-        //float distance = Vector3.Distance(player.position, transform.position);
-        //if (distance <= interactionRadius)
-        //{
-        //    canInteract = true;
-        //}
-        //else
-        //{
-        //    canInteract = false;
-        //}
-
-        // Если игрок в радиусе и нажимает ЛКМ, то переходим на другую сцену
-        if (playerNearby && Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0)) // ЛКМ
         {
-            TransitionToScene();  // Функция перехода на другую сцену
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                var dishes = hit.collider.GetComponent<DishLoader>();
+
+                if (dishes != null)
+                {
+                    dishes.LoadDishes();
+                }
+            }
         }
     }
+    //  [SerializeField] private CamManager camManager;
+    //  [SerializeField] private GameObject dishCamera;
+    //  [SerializeField] private GameObject mainCamera;
+    // // [SerializeField] private Transform player;  // Игрок
+    ////  [SerializeField] private float interactionRadius = 3f;  // Радиус, на котором можно взаимодействовать с тарелкой
+    //  private bool playerNearby = false; // Флаг, чтобы знать, что игрок рядом с дверью
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Dish"))
-        {
-            Debug.Log("We are in");
-            // Если игрок подошел к двери, активируем флаг
-            playerNearby = true;
-        }
-    }
+    //  void Update()
+    //  {
+    //      //// Проверка, в радиусе ли игрок
+    //      //float distance = Vector3.Distance(player.position, transform.position);
+    //      //if (distance <= interactionRadius)
+    //      //{
+    //      //    canInteract = true;
+    //      //}
+    //      //else
+    //      //{
+    //      //    canInteract = false;
+    //      //}
 
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.collider.CompareTag("Dish"))
-        {
-            // Если игрок покидает область двери, сбрасываем флаг
-            playerNearby = false;
-        }
-    }
+    //      // Если игрок в радиусе и нажимает ЛКМ, то переходим на другую сцену
+    //      if (playerNearby && Input.GetMouseButtonDown(0)) 
+    //      {
+    //          TransitionToScene();  // Функция перехода на другую сцену
+    //      }
+    //  }
 
-    // Функция для перехода на другую сцену
-    private void TransitionToScene()
-    {
-        camManager.Switch(mainCamera, dishCamera);
-        camManager.isOnDish = true;
-    }
+    //  void OnCollisionEnter(Collision collision)
+    //  {
+    //      if (collision.collider.CompareTag("Dish"))
+    //      {
+    //          Debug.Log("We are in");
+    //          // Если игрок подошел к двери, активируем флаг
+    //          playerNearby = true;
+    //      }
+    //  }
+
+    //  void OnCollisionExit(Collision collision)
+    //  {
+    //      if (collision.collider.CompareTag("Dish"))
+    //      {
+    //          // Если игрок покидает область двери, сбрасываем флаг
+    //          playerNearby = false;
+    //      }
+    //  }
+
+    //  // Функция для перехода на другую сцену
+    //  private void TransitionToScene()
+    //  {
+    //      camManager.Switch(mainCamera, dishCamera);
+    //      camManager.isOnDish = true;
+    //  }
 
 }

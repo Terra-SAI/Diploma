@@ -9,7 +9,7 @@ public class DoorInteraction : MonoBehaviour
     public InventoryManager inventoryManager;
     public dialog_new_trigger dialog; // UI диалога
     public bool canPass = false;
-  //  public Collider doorCollider; // Коллайдер двери
+    [SerializeField] private Camera camera;
     private bool playerNearby = false; // Флаг, чтобы знать, что игрок рядом с дверью
     [SerializeField] private List<int> requiredItemIds = new List<int> { 1, 2 };
    

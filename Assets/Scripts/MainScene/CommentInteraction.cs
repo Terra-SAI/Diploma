@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Comments : MonoBehaviour
+public class CommentInteraction : MonoBehaviour
 {
     [SerializeField] private Camera camera;
     void Update()

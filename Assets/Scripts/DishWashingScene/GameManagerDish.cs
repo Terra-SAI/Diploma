@@ -11,6 +11,7 @@ public class GameManagerDish : MonoBehaviour
     [SerializeField] private Renderer plateRenderer; // Ссылка на тарелку
     [SerializeField] private TMP_Text gameOverText; // Текст завершения
     [SerializeField] private GameObject continueButton; // Кнопка продолжения
+    [SerializeField] private GameObject dishes;
     private Material dirtMaterial; // Материал грязи
     public static bool isGamePaused = false;
     public bool isFinished = false;
@@ -35,6 +36,7 @@ public class GameManagerDish : MonoBehaviour
         if (dirtMaterial != null && dirtMaterial.color.a <= 0f)
         {
            isFinished = true;
+            dishes.SetActive(false);
             ShowEndScreen();
         }
     }
