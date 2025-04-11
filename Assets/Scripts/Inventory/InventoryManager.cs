@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
+    [SerializeField] private Camera camera;
+
     List<Item> item;
     public GameObject cellContainer;
     public KeyCode showInventory;
@@ -16,7 +20,7 @@ public class InventoryManager : MonoBehaviour
         item = new List<Item>();
         cellContainer.SetActive(false);
 
-        for (int i = 0; i < cellContainer.transform.childCount; i++)
+        for (int i = 1; i < cellContainer.transform.childCount; i++)
         {
             item.Add(new Item());
         }
@@ -26,11 +30,21 @@ public class InventoryManager : MonoBehaviour
     {
         ToggleInventory();
 
-        // Проверяем, если есть предмет рядом и нажата клавиша
-        if (nearbyItem != null && Input.GetKeyDown(pickupKey))
+        if (nearbyItem != null && Input.GetKeyDown(pickupKey)) // ЛКМ
         {
-            AddItemToInventory(nearbyItem);
-            nearbyItem = null; // Сбрасываем ссылку после подбора
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                var invItem = hit.collider.GetComponent<Item>();
+
+                if (invItem != null)
+                {
+                    AddItemToInventory(invItem);
+                }
+                nearbyItem = null;
+            }
         }
     }
 
@@ -44,7 +58,7 @@ public class InventoryManager : MonoBehaviour
 
     void AddItemToInventory(Item newItem)
     {
-        for (int i = 0; i < item.Count; i++)
+        for (int i = 1; i < item.Count; i++)
         {
             if (item[i].id == 0)
             {
@@ -58,7 +72,7 @@ public class InventoryManager : MonoBehaviour
 
     void DisplayItem()
     {
-        for (int i = 0; i < item.Count; i++)
+        for (int i = 1; i < item.Count; i++)
         {
             Transform cell = cellContainer.transform.GetChild(i);
             Transform icon = cell.GetChild(0);

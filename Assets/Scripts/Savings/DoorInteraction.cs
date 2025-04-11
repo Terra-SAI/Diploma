@@ -16,20 +16,44 @@ public class DoorInteraction : MonoBehaviour
 
     private void Update()
     {
-        // Проверяем, нажата ли ЛКМ и игрок рядом с дверью
-        if (playerNearby && Input.GetMouseButtonDown(0)) // ЛКМ = 0
+        if (Input.GetMouseButtonDown(0)) 
         {
-            if (inventoryManager.HasItemsWithIds(requiredItemIds) && dishManager.isFinished)
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 1000))
             {
-                // Если можно пройти, снимаем коллайдер с двери
-                SceneManager.LoadScene(1);
-            }
-            else
-            {
-                // Если не можно пройти, запускаем диалог
-                StartDialog();
+                var commItem = hit.collider.GetComponent<DoorItem>();
+
+                if (commItem != null)
+                {
+                    if (inventoryManager.HasItemsWithIds(requiredItemIds) && dishManager.isFinished)
+                    {
+                        // Если можно пройти, снимаем коллайдер с двери
+                        SceneManager.LoadScene(1);
+                    }
+                    else
+                    {
+                        // Если не можно пройти, запускаем диалог
+                        StartDialog();
+                    }
+                }
             }
         }
+        //// Проверяем, нажата ли ЛКМ и игрок рядом с дверью
+        //if (playerNearby && Input.GetMouseButtonDown(0)) // ЛКМ = 0
+        //{
+        //    if (inventoryManager.HasItemsWithIds(requiredItemIds) && dishManager.isFinished)
+        //    {
+        //        // Если можно пройти, снимаем коллайдер с двери
+        //        SceneManager.LoadScene(1);
+        //    }
+        //    else
+        //    {
+        //        // Если не можно пройти, запускаем диалог
+        //        StartDialog();
+        //    }
+        //}
     }
 
     void OnCollisionEnter(Collision collision)
