@@ -9,7 +9,8 @@ public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private Camera camera;
 
-    List<Item> item;
+    [HideInInspector]
+    public List<Item> item;
     public GameObject cellContainer;
     public KeyCode showInventory;
     public KeyCode pickupKey = KeyCode.Mouse0; // Клавиша для подбора предметов
@@ -20,13 +21,22 @@ public class InventoryManager : MonoBehaviour
         item = new List<Item>();
         cellContainer.SetActive(false);
 
+        NumItems();
+
         for (int i = 1; i < cellContainer.transform.childCount; i++)
         {
             item.Add(new Item());
         }
     }
+    void NumItems()
+    {
+        for (int i = 1; i < cellContainer.transform.childCount; i++)
+        {
+            cellContainer.transform.GetChild(i).GetComponent<CurrentItem>().index = i;
+        }
+    }
 
-    void Update()
+            void Update()
     {
         ToggleInventory();
 
@@ -70,7 +80,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void DisplayItem()
+    public  void DisplayItem()
     {
         for (int i = 1; i < item.Count; i++)
         {
