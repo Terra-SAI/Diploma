@@ -7,6 +7,9 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Transform player; // Игрок
     [SerializeField] private float minZ = -5f; // Минимальная граница
     [SerializeField] private float maxZ = 5f; // Максимальная граница
+
+
+    [SerializeField] private float offset = 5f; // Максимальная граница
     [SerializeField] private float smoothSpeed = 5f; // Скорость сглаживания движения камеры
 
     private float fixedY; // Фиксированное значение Y
@@ -20,7 +23,7 @@ public class CameraMovement : MonoBehaviour
 
     void LateUpdate()
     {
-        float targetZ = Mathf.Clamp(player.position.z, minZ, maxZ); // Двигаемся только по X
+        float targetZ = Mathf.Clamp(player.position.z + offset, minZ, maxZ); // Двигаемся только по X
 
         transform.position = Vector3.Lerp(transform.position, new Vector3(fixedX, fixedY, targetZ), smoothSpeed * Time.deltaTime);
     }
