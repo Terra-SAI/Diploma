@@ -6,11 +6,18 @@ using UnityEngine.SceneManagement;
 public class DoorInteraction : MonoBehaviour
 {
     [SerializeField] private GameManagerDish dishManager;
-    public InventoryManager inventoryManager;
+    [SerializeField] private Window_GM Window_GM;
+
+    [Space]
     public dialog_new_trigger dialog; // UI диалога
-    public bool canPass = false;
+
+    [Space]
     [SerializeField] private Camera camera;
-    private bool playerNearby = false; // Флаг, чтобы знать, что игрок рядом с дверью
+
+    [Space]
+    public bool canPass = false;
+    
+    [Space] public InventoryManager inventoryManager;
     [SerializeField] private List<int> requiredItemIds = new List<int> { 1, 2 };
    
 
@@ -27,7 +34,7 @@ public class DoorInteraction : MonoBehaviour
 
                 if (commItem != null)
                 {
-                    if (inventoryManager.HasItemsWithIds(requiredItemIds) && dishManager.isFinished)
+                    if (inventoryManager.HasItemsWithIds(requiredItemIds) && dishManager.isFinished && Window_GM.isWindowDone)
                     {
                         // Если можно пройти, снимаем коллайдер с двери
                         SceneManager.LoadScene(1);
@@ -40,45 +47,10 @@ public class DoorInteraction : MonoBehaviour
                 }
             }
         }
-        //// Проверяем, нажата ли ЛКМ и игрок рядом с дверью
-        //if (playerNearby && Input.GetMouseButtonDown(0)) // ЛКМ = 0
-        //{
-        //    if (inventoryManager.HasItemsWithIds(requiredItemIds) && dishManager.isFinished)
-        //    {
-        //        // Если можно пройти, снимаем коллайдер с двери
-        //        SceneManager.LoadScene(1);
-        //    }
-        //    else
-        //    {
-        //        // Если не можно пройти, запускаем диалог
-        //        StartDialog();
-        //    }
-        //}
     }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Door"))
-        {
-            Debug.Log("We are in");
-            // Если игрок подошел к двери, активируем флаг
-            playerNearby = true;
-        }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.collider.CompareTag("Door"))
-        {
-            // Если игрок покидает область двери, сбрасываем флаг
-            playerNearby = false;
-        }
-    }
-
 
     private void StartDialog()
     {
-        // Включаем UI для диалога (или любой другой метод для запуска диалога)
         dialog.TriggerDialogue();
     }
 }

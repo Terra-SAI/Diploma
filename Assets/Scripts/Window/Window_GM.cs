@@ -15,27 +15,27 @@ public class Window_GM : MonoBehaviour
 
     public bool isWindowDone = false;
 
+
     private void Start()
     {
-        continueButton.SetActive(false);
+        continueButton.gameObject.SetActive(false);
     }
     void Update()
     {
-        if (isWindowDone) return;
+            if (isWindowDone)  return; 
+
         if (targetPosition.transform.position == windowObj.transform.position)
         {
             isWindowDone = true;           
-            continueButton.SetActive(true);
+            continueButton.gameObject.SetActive(true);
         }
     }
 
     public void LoadMainScene()
     {
-
-        cameraManager.isOnWindow = false;
-
+        continueButton.gameObject.SetActive(false);
         cameraManager.Switch(windowCamera, cameraMain);
-        continueButton.SetActive(false);
+        
     }
 
 

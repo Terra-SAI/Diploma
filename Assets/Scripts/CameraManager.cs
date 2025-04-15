@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    public void Switch(GameObject cam1, GameObject cam2)
+    public void Switch(GameObject offCamera, GameObject onCamera)
     {
-        cam1.SetActive(false);
-        cam2.SetActive(true);
+        offCamera.SetActive(false);
+        onCamera.SetActive(true);
     }
 }
