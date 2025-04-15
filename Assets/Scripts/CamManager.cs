@@ -5,5 +5,6 @@ using UnityEngine;
 public class CamManager : CameraManager
 {
     public bool isOnDish = false;
-    
+    public bool isOnWindow = false;
+
 }

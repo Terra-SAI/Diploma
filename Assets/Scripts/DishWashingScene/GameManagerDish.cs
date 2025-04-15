@@ -8,10 +8,13 @@ public class GameManagerDish : MonoBehaviour
     [SerializeField] private CamManager cameraManager;
     [SerializeField] private GameObject cameraMain;
     [SerializeField] private GameObject dishCamera;
+
+    [Space]
     [SerializeField] private Renderer plateRenderer; // Ссылка на тарелку
     [SerializeField] private TMP_Text gameOverText; // Текст завершения
     [SerializeField] private GameObject continueButton; // Кнопка продолжения
     [SerializeField] private GameObject dishes;
+    [Space]
     private Material dirtMaterial; // Материал грязи
     public static bool isGamePaused = false;
     public bool isFinished = false;
