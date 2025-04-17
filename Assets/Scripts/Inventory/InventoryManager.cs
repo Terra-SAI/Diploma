@@ -66,7 +66,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void AddItemToInventory(Item newItem)
+    public void AddItemToInventory(Item newItem)
     {
         for (int i = 1; i < item.Count; i++)
         {

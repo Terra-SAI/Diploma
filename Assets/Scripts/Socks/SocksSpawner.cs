@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class SocksSpawner : MonoBehaviour
@@ -32,13 +33,42 @@ public class SocksSpawner : MonoBehaviour
         {
             Vector3 spawnPos = new Vector3(
                 Random.Range(spawnAreaMin.x, spawnAreaMax.x),
-                spawnY,
+                spawnY + Mathf.Pow((-1),i) * 1.5f,
                 Random.Range(spawnAreaMin.y, spawnAreaMax.y)
             );
 
             // Случайное вращение по оси Y (в плоскости XZ)
             float randomYRotation = Random.Range(0f, 360f);
             Quaternion randomRotation = Quaternion.Euler(90f, randomYRotation, 0f);
+
+            //// Получаем размер коллайдера из префаба
+            //BoxCollider prefabCollider = sockPrefab.GetComponent<BoxCollider>();
+            //Vector3 halfExtents = prefabCollider.size * 0.5f;
+            //Quaternion rotation = Quaternion.Euler(90f, randomYRotation, 0f);
+            ////int count = 2;
+            ////while (count > 0)
+            ////{
+            ////    // Проверка на пересечение
+            ////    if (Physics.CheckBox(spawnPos + prefabCollider.center, halfExtents, rotation))
+            ////    {
+            ////        i--; // пробуем снова
+            ////        //continue;
+            ////        break;
+            ////    }
+            ////    else count--;
+            ////}
+            ////Проверка на пересечение
+            //if (Physics.CheckBox(spawnPos + prefabCollider.center, halfExtents, rotation))
+            //{
+            //    i--; // пробуем снова
+            //    continue;
+            //}
+            ////Collider[] colliders = Physics.OverlapBox(spawnPos, halfExtents, rotation);
+            ////if (colliders.Length > 0)
+            ////{
+            ////    i--; // пробуем снова
+            ////    continue;
+            ////}
 
             GameObject sock = Instantiate(sockPrefab, spawnPos, randomRotation, transform);
 

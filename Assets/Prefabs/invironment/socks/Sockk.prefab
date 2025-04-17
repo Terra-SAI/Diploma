@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6311865350154895255}
   - component: {fileID: 5540605278511981316}
   - component: {fileID: 3409643656497989165}
+  - component: {fileID: 355376933375055923}
   m_Layer: 0
   m_Name: Sockk
   m_TagString: Untagged
@@ -106,3 +107,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.1662474, y: 8.747983, z: 1.1412817}
   m_Center: {x: -0.5005935, y: 1.94834, z: -0.011451724}
+--- !u!114 &355376933375055923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5619012089606442224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f768965b7a69d4db0da7c40112a36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixedY: 54
+  moveAreaMin: {x: 1440, y: 130}
+  moveAreaMax: {x: 1490, y: 150}
+  highlightMaterial: {fileID: 2100000, guid: f51a5c19a132074489363e365203905f, type: 2}
+  sockCamera: {fileID: 5491766142740078870, guid: 1df56119531151d4abf49715df5e099e, type: 3}
