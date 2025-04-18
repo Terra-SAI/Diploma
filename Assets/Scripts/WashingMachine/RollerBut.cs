@@ -7,7 +7,8 @@ public class RollerBut : MonoBehaviour
     [SerializeField] private Camera washingCamera;
     [SerializeField] private GameObject gameManager;
     [SerializeField] private List<GameObject> panels = new();
-   
+
+    private int count = 0;
 
     private void Start()
     {
@@ -29,8 +30,11 @@ public class RollerBut : MonoBehaviour
             {
                 if (hit.transform == transform)
                 {
-
-                    gameManager.GetComponent<Washing_GM>().count++;
+                    panels[count].SetActive(false);
+                    count++;
+                    if (count > 8) count = count - 9;
+                    panels[count].SetActive(true);
+                    gameManager.GetComponent<Washing_GM>().count = count + 1;
                 }
             }
         }

@@ -10,32 +10,63 @@ public class Washing_GM : MonoBehaviour
 
     [Space]
     [SerializeField] private int targetNum = 5;
-   // [HideInInspector]
+    [HideInInspector]
     public bool isOn = false;
-   // [HideInInspector]
+    [HideInInspector]
     public bool isStarted = false;
-   // [HideInInspector]
+    [HideInInspector]
     public int count = 1;
-  
+
+    public bool isWashing = false;
 
     [Space]
     [SerializeField] private GameObject continueButton;
+    [SerializeField] private GameObject instructions;
+
+
+    [Space]
+    [SerializeField] private GameObject onButton;
+    [SerializeField] private GameObject startButton;
 
     private void Start()
     {
+        instructions.gameObject.SetActive(true);
         continueButton.gameObject.SetActive(false);
     }
 
     private void Update()
     {
+        if (isWashing) { return; }
         if (!isOn) isStarted = false;
-        else if (count != targetNum) isStarted = false;
+        else if (count != targetNum) {
+            EnableEmission(onButton);
+            isStarted = false; 
+        }
+        else if (isStarted)
+        {
+            EnableEmission(startButton);
+            isStarted = true;
+            continueButton.gameObject.SetActive(true);
+        }
     }
     public void LoadMainScene()
     {
+        isWashing = true;
+        instructions.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
         cameraManager.Switch(washingCamera, cameraMain);
 
+    }
+
+    public void EnableEmission(GameObject obj)
+    {
+        Renderer renderer = obj.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            Material mat = renderer.material;
+            mat.EnableKeyword("_EMISSION");
+            mat.SetColor("_EmissionColor", mat.color * (-0.7f));
+        }
     }
 
 }
