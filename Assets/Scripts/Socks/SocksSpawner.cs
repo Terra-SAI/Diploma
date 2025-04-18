@@ -83,11 +83,6 @@ public class SocksSpawner : MonoBehaviour
                 {
                     mat.color = newColor;
                 }
-
-                if (i == firstCorrect || i == secondCorrect)
-                {
-                    sock.tag = "Target";
-                }
             }
 
             spawnedSocks.Add(sock);
