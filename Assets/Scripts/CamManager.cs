@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CamManager : CameraManager
 {
+    [HideInInspector]
     public bool isOnDish = false;
+    [HideInInspector]
+    public bool isOnWash = false;
 
 }

@@ -25,7 +25,6 @@ public class StartBut : MonoBehaviour
                 if (hit.transform == transform)
                 {
                     gameManager.GetComponent<Washing_GM>().isStarted = true;
-                   // EnableEmission();
                 }
             }
         }
@@ -33,8 +32,6 @@ public class StartBut : MonoBehaviour
 
     public void EnableEmission()
     {
-        if (buttonRenderer == null) return;
-
         foreach (var mat in buttonRenderer.materials)
         {
             mat.EnableKeyword("_EMISSION");

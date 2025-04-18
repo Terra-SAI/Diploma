@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.UI;
@@ -78,6 +79,12 @@ public class InventoryManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void RemoveItem(Item item)
+    {
+        this.item.Remove(item);
+        DisplayItem();
     }
 
     public  void DisplayItem()

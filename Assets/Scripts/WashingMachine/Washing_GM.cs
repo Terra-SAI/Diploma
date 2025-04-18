@@ -30,13 +30,14 @@ public class Washing_GM : MonoBehaviour
 
     private void Start()
     {
-        instructions.gameObject.SetActive(true);
+        instructions.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         if (isWashing) { return; }
+        if (cameraManager.isOnWash) instructions.gameObject.SetActive(true);
         if (!isOn) isStarted = false;
         else if (count != targetNum) {
             EnableEmission(onButton);
@@ -47,6 +48,7 @@ public class Washing_GM : MonoBehaviour
             EnableEmission(startButton);
             isStarted = true;
             continueButton.gameObject.SetActive(true);
+           // instructions.gameObject.SetActive(true);
         }
     }
     public void LoadMainScene()
