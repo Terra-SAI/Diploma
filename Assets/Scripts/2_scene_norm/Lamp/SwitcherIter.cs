@@ -6,6 +6,7 @@ public class SwitcherIter : MonoBehaviour
 {
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject mainLight;
+    [SerializeField] private Color color;
 
     public bool isLightOff1 = false;
 
@@ -28,7 +29,12 @@ public class SwitcherIter : MonoBehaviour
 
                 if (commItem != null)
                 {
-                    mainLight.SetActive(false);
+                    // mainLight.SetActive(false);
+                    Light light = mainLight.GetComponent<Light>();
+                    if (light != null)
+                    {
+                        light.color = color;
+                    }
                     isLightOff1 = true;
                 }
             }

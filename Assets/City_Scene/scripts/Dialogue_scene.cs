@@ -19,7 +19,7 @@ public class Dialogue_scene : MonoBehaviour
     {
         if (IsAnimationPlaying("Base Layer.hide"))
         {
-            SceneManager.LoadScene("empty");
+            SceneManager.LoadScene("07_RoomEvening");
         }
     }
     public void TriggerDialogue()
