@@ -11,10 +11,8 @@ public class CommentInteraction : MonoBehaviour
                 RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, 1000))
-            {
-                var commItem = hit.collider.GetComponent<CommItem>();
-
-                if (commItem != null)
+            { 
+                if (hit.collider.TryGetComponent<CommItem>(out CommItem commItem))
                 {
                     commItem.ActivateComment();
                 }

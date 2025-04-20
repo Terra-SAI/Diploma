@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
+
+
     public GameObject[] objectPrefabs; // Массив префабов объектов
     public int totalObjects = 24; // Общее количество объектов
     public Transform centralObject; // Центральный объект для размещения
@@ -12,7 +14,7 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject hiddenObject; // Объект, который становится видимым по завершении игры
     [SerializeField] private GameObject button;
 
-    private List<GameObject> spawnedObjects = new List<GameObject>();
+     private List<GameObject> spawnedObjects = new List<GameObject>();
     private GameObject selectedObject = null; // Переменная для хранения первого выбранного объекта
 
     void Start()
@@ -70,7 +72,7 @@ public class ObjectSpawner : MonoBehaviour
     // Функция для проверки пар
     public void CheckPairs(GameObject objectA, GameObject objectB)
     {
-        if (objectA.tag == objectB.tag)
+        if (objectA.transform.GetComponent<Renderer>().material == objectB.transform.GetComponent<Renderer>().material)
         {
             Destroy(objectA);
             Destroy(objectB);

@@ -60,13 +60,13 @@ public class ElectricLock : MonoBehaviour
             ClearText();
         }
     }
-    public void ExitToScene()
-    {
-        SceneManager.LoadScene(3); 
-    }
+    //public void ExitToScene()
+    //{
+    //    SceneManager.LoadScene("empty"); 
+    //}
 
     public void ExitToFinalScene()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("empty");
     }
 }

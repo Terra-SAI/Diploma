@@ -1,0 +1,67 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class NewWindowwIter : MonoBehaviour
+{
+
+    public dialog_new_trigger dialog;
+    private int count;
+    [Space]
+    [SerializeField] private GameObject mainCamera;
+    [Space]
+    [SerializeField] private int nerves;
+    [SerializeField] private GameObject exitButton;
+    [SerializeField] private GameObject enterButton;
+    // Start is called before the first frame update
+    void Start()
+    {
+        count = 0;
+        exitButton.gameObject.SetActive(false);
+        enterButton.gameObject.SetActive(false);
+    }
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                var commItem = hit.collider.GetComponent<WindowItem>();
+
+                if (commItem != null)
+                {
+                    if (count < nerves)
+                    {
+                        StartDialog();
+                        count++;
+
+                    }
+                    else
+                    {
+                        exitButton.gameObject.SetActive(true);
+                        enterButton.gameObject.SetActive(true);
+                    }
+                }
+            }
+        }
+    }
+    private void StartDialog()
+    {
+        dialog.TriggerDialogue();
+    }
+
+    public void GoOut()
+    {
+        SceneManager.LoadScene("empty");
+    }
+
+    public void GoIn()
+    {
+        enterButton.gameObject.SetActive(false);
+        exitButton.gameObject.SetActive(false);
+    }
+}
