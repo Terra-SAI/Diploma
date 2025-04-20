@@ -10,6 +10,8 @@ public class Window_GM : MonoBehaviour
     [Space]
     public GameObject windowObj;
     public GameObject targetPosition;
+    [SerializeField] private GameObject windowBase;
+    [SerializeField] private GameObject newPos;
     [Space]
     [SerializeField] private GameObject continueButton;
 
@@ -26,6 +28,7 @@ public class Window_GM : MonoBehaviour
 
         if (targetPosition.transform.position == windowObj.transform.position)
         {
+            windowBase.transform.position = newPos.transform.position;
             isWindowDone = true;           
             continueButton.gameObject.SetActive(true);
         }

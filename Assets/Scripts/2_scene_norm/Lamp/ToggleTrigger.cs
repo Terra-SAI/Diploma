@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ToggleTrigger : MonoBehaviour
 {
+    [SerializeField] private CamManager camManager;
     [SerializeField] private Camera lampCamera;
     [SerializeField] private float minY = -3f;
     [SerializeField] private float maxY = 1f;
@@ -25,6 +26,7 @@ public class ToggleTrigger : MonoBehaviour
 
     void Update()
     {
+        if (!camManager.isOnLamp) return;
 
         if (Input.GetMouseButtonDown(0))
         {

@@ -9,4 +9,7 @@ public class CamManager : CameraManager
     [HideInInspector]
     public bool isOnWash = false;
 
+    [HideInInspector]
+    public bool isOnLamp = false;
+
 }
