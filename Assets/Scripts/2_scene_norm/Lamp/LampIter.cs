@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class LampIter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private LampGM LampGM;
+    [SerializeField] private CamManager CamManager;
 
-    // Update is called once per frame
+    [Space]
+    [SerializeField] private GameObject mainCamera;
+    [SerializeField] private GameObject lampCamera;
+
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                var commItem = hit.collider.GetComponent<LampItem>();
+
+                if (commItem != null)
+                {
+                    if (LampGM.isLightOff2) return;
+                    CamManager.Switch(mainCamera, lampCamera);
+                }
+            }
+        }
     }
 }

@@ -4111,7 +4111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &1572049682
 Camera:
   m_ObjectHideFlags: 0
@@ -6237,7 +6237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &138944316570823634
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13352,6 +13352,7 @@ GameObject:
   - component: {fileID: 3419060655521044457}
   - component: {fileID: 5293948665701571904}
   - component: {fileID: 8760531344932078983}
+  - component: {fileID: 8760531344932078984}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -16860,6 +16861,22 @@ MonoBehaviour:
   washingCamera: {fileID: 1464622313}
   inventoryManager: {fileID: 1174967888468886611}
   requiredItemIds: 04000000
+--- !u!114 &8760531344932078984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640103044345843318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf0fafddf1a8d54ba8785f3d4f7df72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LampGM: {fileID: 626636411}
+  CamManager: {fileID: 7521574349396409309}
+  mainCamera: {fileID: 125065255026436767}
+  lampCamera: {fileID: 1572049680}
 --- !u!1 &8776078549807195372
 GameObject:
   m_ObjectHideFlags: 0
