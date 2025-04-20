@@ -5,13 +5,13 @@ public class ObjectSpawner : MonoBehaviour
 {
 
 
-    public GameObject[] objectPrefabs; // Массив префабов объектов
-    public int totalObjects = 24; // Общее количество объектов
-    public Transform centralObject; // Центральный объект для размещения
-    public Vector2 spawnAreaSize = new Vector2(10, 10); // Размер области размещения объектов
-    public float minZHeight = -5f; // Минимальная высота по оси Z
-    public float maxZHeight = 0f; // Максимальная высота по оси Z
-    public GameObject hiddenObject; // Объект, который становится видимым по завершении игры
+    [SerializeField] private GameObject[] objectPrefabs; // Массив префабов объектов
+    [SerializeField] private int totalObjects = 24; // Общее количество объектов
+    [SerializeField] private Transform centralObject; // Центральный объект для размещения
+    [SerializeField] private Vector2 spawnAreaSize = new Vector2(10, 10); // Размер области размещения объектов
+    [SerializeField] private float minZHeight = -5f; // Минимальная высота по оси Z
+    [SerializeField] private float maxZHeight = 0f; // Максимальная высота по оси Z
+    [SerializeField] private GameObject hiddenObject; // Объект, который становится видимым по завершении игры
     [SerializeField] private GameObject button;
 
      private List<GameObject> spawnedObjects = new List<GameObject>();
@@ -44,8 +44,14 @@ public class ObjectSpawner : MonoBehaviour
                     currentZHeight
                 );
 
-                GameObject newObject = Instantiate(objectPrefabs[i], randomPosition, Quaternion.Euler(180, 0, 0)); // Поворот на 180 градусов по оси X
-                Bounds objectBounds = newObject.GetComponent<Renderer>().bounds;
+
+                GameObject newObject = Instantiate(
+                    objectPrefabs[i],
+                    randomPosition,
+                    Quaternion.Euler(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f)) // Случайный поворот
+                    );
+
+                var objectBounds = newObject.GetComponent<Renderer>().bounds;
                 float objectHeight = objectBounds.size.z;
 
                 // Устанавливаем финальную высоту с учетом высоты объекта
@@ -72,7 +78,7 @@ public class ObjectSpawner : MonoBehaviour
     // Функция для проверки пар
     public void CheckPairs(GameObject objectA, GameObject objectB)
     {
-        if (objectA.transform.GetComponent<Renderer>().material == objectB.transform.GetComponent<Renderer>().material)
+        if (objectA.transform.GetComponent<Renderer>().material.color == objectB.transform.GetComponent<Renderer>().material.color)
         {
             Destroy(objectA);
             Destroy(objectB);
@@ -134,7 +140,7 @@ public class MouseClick : MonoBehaviour
         {
             // Включение свечения
             objectMaterial.EnableKeyword("_EMISSION");
-            objectMaterial.SetColor("_EmissionColor", Color.yellow);
+            objectMaterial.SetColor("_EmissionColor", Color.white);
             objectSpawner.SelectObject(gameObject); // Уведомление ObjectSpawner о клике
         }
         else
