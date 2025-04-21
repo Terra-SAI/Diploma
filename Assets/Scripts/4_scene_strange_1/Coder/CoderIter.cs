@@ -24,6 +24,7 @@ public class CoderIter : MonoBehaviour
 
                 if (commItem != null)
                 {
+                    CamManager.isOnCoder = true;
                     CamManager.Switch(mainCamera, coderCamera);
                 }
             }

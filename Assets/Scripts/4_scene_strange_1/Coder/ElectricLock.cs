@@ -19,6 +19,9 @@ public class ElectricLock : MonoBehaviour
     [SerializeField] private GameObject _exitButton;
     [SerializeField] private GameObject textPanel;
 
+    [Space]
+    public bool isCodeCorrect;
+
     //   private Ray _playerRaycast;
     //  private BoxCollider _boxCollider;
 
@@ -27,13 +30,19 @@ public class ElectricLock : MonoBehaviour
 
 	private void Start()
 	{
-        _exitButton.SetActive(true);
+       // _exitButton.SetActive(true);
+        isCodeCorrect = false;
         //_boxCollider = GetComponent<BoxCollider>();
     }
 
+    private void Update()
+    {
+        if (isCodeCorrect) { return; }
+        if (!CamManager.isOnCoder) return;
+        else _exitButton.SetActive(true);
+    }
 
-
-	public void AddNumber(int num)
+    public void AddNumber(int num)
     {
         if(countOfNumbers >= 5 || passwordIsEntered) return;
 
@@ -61,6 +70,7 @@ public class ElectricLock : MonoBehaviour
             passwordIsEntered = true;
             Debug.Log("Пароль верный!");
 
+            isCodeCorrect = true;
             ShowText();
         }
         else
@@ -77,6 +87,7 @@ public class ElectricLock : MonoBehaviour
     public void LoadMainScene()
     {
         CamManager.Switch(coderCamera, mainCamera);
+        CamManager.isOnCoder = false;
         _exitButton.gameObject.SetActive(false);
     }
 
