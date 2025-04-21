@@ -17,8 +17,10 @@ public class ObjectSpawner : MonoBehaviour
      private List<GameObject> spawnedObjects = new List<GameObject>();
     private GameObject selectedObject = null; // Переменная для хранения первого выбранного объекта
 
+    public bool isPaired = false;
     void Start()
     {
+        isPaired = false;
         hiddenObject.SetActive(false);
         SpawnObjects();
     }
@@ -88,6 +90,7 @@ public class ObjectSpawner : MonoBehaviour
             if (spawnedObjects.Count == 0)
             {
                 Debug.Log("Все объекты собраны! Игра завершена.");
+                isPaired = true;
                 hiddenObject.SetActive(true); // Показать объект по завершении игры
 
             }

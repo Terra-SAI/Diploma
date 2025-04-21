@@ -9,6 +9,7 @@ public class DiamondSpawner : MonoBehaviour
     [Space]
     [SerializeField] private GameObject panel;
     [SerializeField] private GameObject diamond;
+    [SerializeField] private GameObject door;
 
     [Space] public InventoryManager inventoryManager;
     [SerializeField] private List<int> requiredItemIds = new List<int> { 5 };
@@ -18,6 +19,8 @@ public class DiamondSpawner : MonoBehaviour
     {
         panel.gameObject.SetActive(false);
         diamond.gameObject.SetActive(false);
+
+        door.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -31,6 +34,8 @@ public class DiamondSpawner : MonoBehaviour
         {
             panel.gameObject.SetActive(true);
             diamond.gameObject.SetActive(true);
+
+            door.gameObject.SetActive(false);
         }
     }
 }
