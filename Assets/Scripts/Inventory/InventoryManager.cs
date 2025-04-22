@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -149,5 +150,22 @@ public class InventoryManager : MonoBehaviour
         }
 
         return true; // Все предметы с нужными ID найдены
+    }
+
+    public int CountItemsWithIds(int id)
+    { 
+     int count = 0;
+        List<int> ids = new List<int>(id);
+        if (HasItemsWithIds(ids))
+        {
+            foreach (Item i in item)
+            {
+                if (i.id == id)
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 }

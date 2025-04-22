@@ -9,11 +9,14 @@ public class MirrorController : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 2f; // Скорость перемещения зеркала
     [SerializeField] private Camera camera;
+
+    [Space]
+    [SerializeField] private LightMovement move;
     private Vector3 offset;
 
     void Update()
     {
-
+        if (move.isAlive) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
