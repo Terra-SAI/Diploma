@@ -27,7 +27,6 @@ public class LightIter : MonoBehaviour
     
             if (Physics.Raycast(ray, out hit, 1000))
             {
-                Debug.Log(hit.transform.name);
                 var commItem = hit.collider.GetComponent<LightItem>();
 
                 if (commItem != null)
