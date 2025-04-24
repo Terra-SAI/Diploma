@@ -38,7 +38,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-            void Update()
+    void Update()
     {
         ToggleInventory();
 

@@ -40,6 +40,7 @@ public class SafeIter : MonoBehaviour
                         {
                             // CamManager.Switch(mainCamera, safeCamera);
                             inventoryManager.AddItemToInventory(item);
+
                             isAdded = true;
                         }
 
