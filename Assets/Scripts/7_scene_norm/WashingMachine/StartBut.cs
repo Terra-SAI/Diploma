@@ -30,12 +30,12 @@ public class StartBut : MonoBehaviour
         }
     }
 
-    public void EnableEmission()
-    {
-        foreach (var mat in buttonRenderer.materials)
-        {
-            mat.EnableKeyword("_EMISSION");
-            mat.SetColor("_EmissionColor", mat.color * (-0.7f));
-        }
-    }
+    //public void EnableEmission()
+    //{
+    //    foreach (var mat in buttonRenderer.materials)
+    //    {
+    //        mat.EnableKeyword("_EMISSION");
+    //        mat.SetColor("_EmissionColor", mat.color * (-0.7f));
+    //    }
+    //}
 }

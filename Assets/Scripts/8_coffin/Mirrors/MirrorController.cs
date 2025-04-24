@@ -3,7 +3,6 @@ using UnityEngine;
 public class MirrorController : MonoBehaviour
 {
     private bool isDragging = false; // Перемещается ли зеркало
-  //  [SerializeField] private Vector3 offset; // Смещение мыши относительно зеркала
     [SerializeField] private float minY = -3111f;
     [SerializeField] private float maxY = -3068f;
 

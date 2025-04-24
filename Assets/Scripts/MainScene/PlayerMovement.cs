@@ -16,15 +16,14 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true; 
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (cameraManager.isOnDish)
         {
             return;
         }
-        float moveHorizontal = Input.GetAxis("Horizontal"); 
-        float moveVertical = Input.GetAxis("Vertical"); 
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical).normalized;
 
@@ -35,12 +34,9 @@ public class PlayerMovement : MonoBehaviour
             rb.transform.rotation = targetRotation;
             rb.AddForce(movement * playerSpeed);
         }
-        else 
+        else
         {
             animator.SetBool("isWalking", false);
         }
-
-
-
-        }
+    }
 }
