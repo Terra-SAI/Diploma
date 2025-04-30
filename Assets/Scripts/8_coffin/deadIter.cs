@@ -16,7 +16,7 @@ public class deadIter : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 1000))
             {
-                var commItem = hit.collider.GetComponent<CommItem>();
+                var commItem = hit.collider.GetComponent<CommItemNew>();
 
                 if (commItem != null)
                 {

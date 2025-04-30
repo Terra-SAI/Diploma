@@ -5851,7 +5851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 601a1875f63417f45b545b6f8413e524, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1630794972795428178, guid: 601a1875f63417f45b545b6f8413e524, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6186,10 +6186,10 @@ PrefabInstance:
       addedObject: {fileID: 1257036830}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 601a1875f63417f45b545b6f8413e524, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1257036831}
+      addedObject: {fileID: 1257036832}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 601a1875f63417f45b545b6f8413e524, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1257036832}
+      addedObject: {fileID: 1257036831}
   m_SourcePrefab: {fileID: 100100000, guid: 601a1875f63417f45b545b6f8413e524, type: 3}
 --- !u!1 &953678711
 GameObject:
@@ -6720,7 +6720,7 @@ Transform:
   m_GameObject: {fileID: 1061078448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.64115053, z: -0, w: 0.76741517}
-  m_LocalPosition: {x: 655.6, y: -34.688354, z: 97.1}
+  m_LocalPosition: {x: 712.7, y: -34.688354, z: 107.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6808,7 +6808,7 @@ MonoBehaviour:
         \u044D\u0442\u043E \u0441\u0430\u043C? \u0410 \u0442\u043E \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0441\u044F,
         \u0447\u0442\u043E \u0442\u043E\u043B\u044C\u043A\u043E \u044F \u0442\u0435\u0431\u0435
         \u043F\u043E\u043C\u043E\u0433\u0430\u044E"
-  canCommunicate: 0
+  canCommunicate: 1
 --- !u!54 &1061078454
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7710,16 +7710,6 @@ MonoBehaviour:
         icon: {fileID: 21300000, guid: 2e67a33be80caa1449f14d898f9e7ddb, type: 3}
       line: "\u0411\u0435\u0433\u0438 ... \u0411\u0435\u0433\u0438 ... \u0411\u0435\u0433\u0438
         ..."
-    - character:
-        name: "\u041C\u0430\u0440\u0438"
-        icon: {fileID: 21300000, guid: 2e67a33be80caa1449f14d898f9e7ddb, type: 3}
-      line: "\u0411\u0435\u0433\u0438 ... \u0411\u0435\u0433\u0438 ... \u0411\u0435\u0433\u0438
-        ..."
-    - character:
-        name: "\u041C\u0430\u0440\u0438"
-        icon: {fileID: 21300000, guid: 2e67a33be80caa1449f14d898f9e7ddb, type: 3}
-      line: "\u0411\u0435\u0433\u0438 ... \u0411\u0435\u0433\u0438 ... \u0411\u0435\u0433\u0438
-        ..."
 --- !u!114 &1257036832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7729,13 +7719,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1257036828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172c5d75379301e44900453c615dcd1f, type: 3}
+  m_Script: {fileID: 11500000, guid: ce4e3ed7a4afad8488b7fab4c46eb809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipUI: {fileID: 6622973476523988396}
-  tooltipText: {fileID: 2032177957004500350}
-  itemText: dg
-  tooltipTimer: 5
 --- !u!1 &1259727909
 GameObject:
   m_ObjectHideFlags: 0
@@ -12757,7 +12743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraManager: {fileID: 9096603160876333627}
-  playerSpeed: 4000
+  playerSpeed: 3000
 --- !u!1 &363734282782323475
 GameObject:
   m_ObjectHideFlags: 0
@@ -15954,7 +15940,7 @@ Transform:
   m_GameObject: {fileID: 6348399484318879632}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.9354594, z: -0, w: -0.3534343}
-  m_LocalPosition: {x: 925.48065, y: 10.499962, z: -187.3046}
+  m_LocalPosition: {x: 980.4, y: 10.499962, z: -187.3046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
