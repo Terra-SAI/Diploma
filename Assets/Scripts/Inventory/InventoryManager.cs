@@ -48,7 +48,7 @@ public class InventoryManager : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 1000))
             {
-              //  Debug.Log(hit.collider.name);
+              // Debug.Log(hit.collider.name);
                 var invItem = hit.collider.GetComponent<Item>();
 
                 if (invItem != null)
@@ -113,7 +113,7 @@ public class InventoryManager : MonoBehaviour
         if (collision.CompareTag("Item"))
         {
             nearbyItem = collision.GetComponent<Collider>().GetComponent<Item>();
-           // Debug.Log($"nearby: {nearbyItem.name}");
+        //  Debug.Log($"nearby: {nearbyItem.name}");
         }
     }
 
@@ -124,7 +124,7 @@ public class InventoryManager : MonoBehaviour
             if (nearbyItem == collision.GetComponent<Collider>().GetComponent<Item>())
             {
                 nearbyItem = null;
-             //   Debug.Log("no nearby");
+              //Debug.Log("no nearby");
             }
         }
     }

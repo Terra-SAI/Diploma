@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PortalIter1 : MonoBehaviour
 {
+
     [SerializeField] private GameObject mainCamera;
+
+    [Space]
+    [SerializeField] private float distance = 70f;
     void Update()
     {
 
@@ -18,9 +22,9 @@ public class PortalIter1 : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<PortalItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
-                    SceneManager.LoadScene("empty");
+                    SceneManager.LoadScene("09_Last");
                 }
             }
         }
