@@ -8,9 +8,14 @@ public class MovengPuzzl : MonoBehaviour
     Vector2 mousePos;//Позиция курсора
     float startPosX;//Начальное пеложение объекта по Х
     float startPosY;//Начальное пеложение объекта по Y
+    float startPosZ;
     public GameObject form;//Прозрачная форма с правильной позицией
     bool finish;
 
+    private void Start()
+    {
+        startPosZ = transform.position.z;
+    }
     void OnMouseDown(){
         if(Input.GetMouseButtonDown(0)){//Когда пользователь нажимает левой клавишей мыши
             move = true;//Разрешаем перемещение
@@ -25,9 +30,9 @@ public class MovengPuzzl : MonoBehaviour
         move = false;//Запрещяем перемещение
 
         //Если Объект рядом со своим местом, то помещаем его его туда и запрещаем дальнейшее перемещение
-        if(Mathf.Abs(this.transform.localPosition.x - form.transform.localPosition.x)<=5f&&
-           Mathf.Abs(this.transform.localPosition.y - form.transform.localPosition.y)<=5f){
-               this.transform.position = new Vector2(form.transform.position.x,form.transform.position.y);
+        if(Mathf.Abs(this.transform.localPosition.x - form.transform.localPosition.x)<=10f&&
+           Mathf.Abs(this.transform.localPosition.y - form.transform.localPosition.y)<=10f){
+               this.transform.position = new Vector3(form.transform.position.x,form.transform.position.y, startPosZ);
                finish = true;
                WinScript.AddElement();//Увеличиваем кол-во элементов на своем месте
         }
@@ -38,7 +43,7 @@ public class MovengPuzzl : MonoBehaviour
     {
         if(move == true && finish == false){
             mousePos = Input.mousePosition;//Получаем координаты курсора
-            this.gameObject.transform.localPosition = new Vector2((mousePos.x - startPosX)*1.2f, (mousePos.y-startPosY)*1.2f);//Перемещаем обЪект
+            this.gameObject.transform.localPosition = new Vector3((mousePos.x - startPosX), (mousePos.y-startPosY), startPosZ);//Перемещаем обЪект
         }
     }
 }
