@@ -14,6 +14,9 @@ public class SockIteract : MonoBehaviour
     [Space] public InventoryManager inventoryManager;
     [SerializeField] private List<int> requiredItemIds = new List<int> { 3 };
 
+    [Space]
+    [SerializeField] private float distance = 70f;
+
     
     // Update is called once per frame
     void Update()
@@ -27,7 +30,7 @@ public class SockIteract : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<dresserItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance( this.transform.position, commItem.transform.position)<= distance)
                 {
                     if (inventoryManager.HasItemsWithIds(requiredItemIds))
                     {

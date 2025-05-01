@@ -19,6 +19,9 @@ public class WindowIter : MonoBehaviour
     [SerializeField] private int nerves;
     [SerializeField] private GameObject exitButton;
     [SerializeField] private GameObject enterButton;
+
+    [Space]
+    [SerializeField] private float distance = 70f;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +42,7 @@ public class WindowIter : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<WindowItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     if (count < nerves) {
                         if (!Window_GM.isWindowDone)

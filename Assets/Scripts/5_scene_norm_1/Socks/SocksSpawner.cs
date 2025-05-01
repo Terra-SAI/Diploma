@@ -95,7 +95,7 @@ public class SocksSpawner : MonoBehaviour
         do
         {
             newColor = new Color(Random.value, Random.value, Random.value);
-        } while (ColorDistance(newColor, exclude) < 0.3f); // избегаем слишком похожих оттенков
+        } while (ColorDistance(newColor, exclude) < 0.5f); // избегаем слишком похожих оттенков
         return newColor;
     }
 

@@ -14,8 +14,8 @@ public class InventoryManager : MonoBehaviour
     public List<Item> item;
     public GameObject cellContainer;
     public KeyCode showInventory;
-    public KeyCode pickupKey = KeyCode.Mouse0; // Клавиша для подбора предметов
-    private Item nearbyItem; // Ссылка на предмет, который можно подобрать
+    public KeyCode pickupKey = KeyCode.Mouse0; 
+    private Item nearbyItem; 
 
     void Start()
     {
@@ -41,13 +41,14 @@ public class InventoryManager : MonoBehaviour
     {
         ToggleInventory();
 
-        if (nearbyItem != null && Input.GetKeyDown(pickupKey)) // ЛКМ
+        if (nearbyItem != null && Input.GetKeyDown(pickupKey)) 
         {
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, 1000))
             {
+              //  Debug.Log(hit.collider.name);
                 var invItem = hit.collider.GetComponent<Item>();
 
                 if (invItem != null)
@@ -107,23 +108,23 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.collider.CompareTag("Item"))
+        if (collision.CompareTag("Item"))
         {
-            nearbyItem = collision.collider.GetComponent<Item>();
-            Debug.Log($"Рядом предмет: {nearbyItem.name}");
+            nearbyItem = collision.GetComponent<Collider>().GetComponent<Item>();
+           // Debug.Log($"nearby: {nearbyItem.name}");
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
-        if (collision.collider.CompareTag("Item"))
+        if (collision.CompareTag("Item"))
         {
-            if (nearbyItem == collision.collider.GetComponent<Item>())
+            if (nearbyItem == collision.GetComponent<Collider>().GetComponent<Item>())
             {
                 nearbyItem = null;
-                Debug.Log("Вышли из зоны предмета");
+             //   Debug.Log("no nearby");
             }
         }
     }
@@ -142,13 +143,13 @@ public class InventoryManager : MonoBehaviour
                 }
             }
 
-            if (!found) // Если хотя бы одного предмета нет, возвращаем false
+            if (!found) 
             {
                 return false;
             }
         }
 
-        return true; // Все предметы с нужными ID найдены
+        return true; 
     }
 
     public int CountItemsWithIds(int id)

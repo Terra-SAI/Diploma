@@ -19,7 +19,10 @@ public class DoorInteraction : MonoBehaviour
     
     [Space] public InventoryManager inventoryManager;
     [SerializeField] private List<int> requiredItemIds = new List<int> { 1, 2 };
-   
+
+    [Space]
+    [SerializeField] private float distance = 70f;
+
 
     private void Update()
     {
@@ -32,7 +35,7 @@ public class DoorInteraction : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<DoorItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     if (inventoryManager.HasItemsWithIds(requiredItemIds) && dishManager.isFinished && Window_GM.isWindowDone)
                     {
