@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class deadIter : MonoBehaviour
 {
+    [Space]
+    [SerializeField] private int normalParam = -2;
+
     public dialog_new_trigger dialog;
     [Space]
     [SerializeField] private GameObject mainCamera;
@@ -20,7 +23,8 @@ public class deadIter : MonoBehaviour
 
                 if (commItem != null)
                 {
-                        StartDialog();
+                    SaveManager.Instance.AddToProgress(normalParam);
+                    StartDialog();
                 }
             }
         }

@@ -11,6 +11,8 @@ public class NewWindowwIter : MonoBehaviour
     [Space]
     [SerializeField] private GameObject mainCamera;
     [Space]
+    [SerializeField] private int normalParam = 10;
+    [Space]
     [SerializeField] private int nerves;
     [SerializeField] private GameObject exitButton;
     [SerializeField] private GameObject enterButton;
@@ -56,7 +58,10 @@ public class NewWindowwIter : MonoBehaviour
 
     public void GoOut()
     {
-        SceneManager.LoadScene("empty");
+        Scene scene = SceneManager.GetActiveScene();
+        SaveManager.Instance.AddToProgress(normalParam);
+        SaveManager.Instance.SaveGame(scene.name, SaveManager.Instance.GetProgress());
+        SceneManager.LoadScene("000_DEAD");
     }
 
     public void GoIn()

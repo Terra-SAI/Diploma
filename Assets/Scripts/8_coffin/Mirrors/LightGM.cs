@@ -5,6 +5,9 @@ using UnityEngine.U2D;
 
 public class LightGM : MonoBehaviour
 {
+    [Space]
+    [SerializeField] private int normalParam = -20;
+
     [SerializeField] private CamManager cameraManager;
     [SerializeField] private GameObject cameraMain;
     [SerializeField] private GameObject lightCamera;
@@ -36,6 +39,9 @@ public class LightGM : MonoBehaviour
             MaryNew.gameObject.SetActive(true);
 
             continueButton.gameObject.SetActive(true);
+
+            SaveManager.Instance.AddToProgress(normalParam);
+
             isAlive = true;
         }
     }
@@ -44,6 +50,7 @@ public class LightGM : MonoBehaviour
     {
         continueButton.gameObject.SetActive(false);
         cameraManager.Switch(lightCamera, cameraMain);
+
 
     }
 }

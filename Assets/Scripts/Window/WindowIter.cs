@@ -14,6 +14,8 @@ public class WindowIter : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject windowCamera;
 
+    [Space]
+    [SerializeField] private int normalParam = 10;
     private int count;
     [Space]
     [SerializeField] private int nerves;
@@ -71,7 +73,10 @@ public class WindowIter : MonoBehaviour
 
     public void GoOut()
     {
-        SceneManager.LoadScene("empty");    
+        Scene scene = SceneManager.GetActiveScene();
+        SaveManager.Instance.AddToProgress(normalParam);
+        SaveManager.Instance.SaveGame(scene.name, SaveManager.Instance.GetProgress());
+        SceneManager.LoadScene("000_DEAD");
     }
 
     public void GoIn()
