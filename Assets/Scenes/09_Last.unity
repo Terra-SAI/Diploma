@@ -462,6 +462,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412456490}
   m_CullTransparentMesh: 1
+--- !u!1 &1671666136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671666138}
+  - component: {fileID: 1671666137}
+  - component: {fileID: 1671666139}
+  m_Layer: 0
+  m_Name: SaverM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1671666137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671666136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972ef605e4b6fde46bf8ef8dd3b469f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1671666138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671666136}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 650.103, y: 81.79004, z: -104.379364}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1671666139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671666136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6943d3d73fbfd624ebe2c2bdc78405ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalParam: 30
 --- !u!1001 &1698256995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -561,6 +619,34 @@ PrefabInstance:
     - target: {fileID: 394126859153097483, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1671666139}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DoBelieve
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Believer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5380462283269576282, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
       propertyPath: m_text
@@ -691,6 +777,34 @@ PrefabInstance:
     - target: {fileID: 394126859153097483, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1671666139}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DoNotBelieve
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Believer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168012541550874424, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5380462283269576282, guid: 1fb1a8b56dc37164e80753be05cdb1d0, type: 3}
       propertyPath: m_text
@@ -954,3 +1068,4 @@ SceneRoots:
   - {fileID: 1998432138}
   - {fileID: 197920954}
   - {fileID: 822590233}
+  - {fileID: 1671666138}
