@@ -20,6 +20,7 @@ public class PortalIter : MonoBehaviour
 
                 if (commItem != null)
                 {
+                    SaveManager.Instance.SaveGame("05_RoomScene", SaveManager.Instance.GetProgress());
                     SceneManager.LoadScene("05_RoomScene");
                 }
             }

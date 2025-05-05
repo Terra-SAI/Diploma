@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
 {
     public void StartGame()
     {
+        SaveManager.Instance.ResetSave();
         SceneManager.LoadScene("04_StrangeScene");
     }
 
@@ -18,5 +19,10 @@ public class Menu : MonoBehaviour
 #else
     Application.Quit();
 #endif
+    }
+
+    public void LoadGame ()
+    {
+        SaveManager.Instance.LoadGame();
     }
 }

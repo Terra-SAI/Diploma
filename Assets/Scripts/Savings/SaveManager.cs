@@ -1,51 +1,62 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
-
-
-[System.Serializable]
-public class SaveData
-{
-    public Vector3 playerPosition;
-    public bool isDishClean;  // Булевое значение для чистоты посуды
-}
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
-    private string filePath;
+    public static SaveManager Instance;
 
-    void Start()
+    private void Awake()
     {
-        filePath = Path.Combine(Application.persistentDataPath, "savefile.json");
-    }
-
-    public void SavePlayerData(Vector3 position, bool isActive, bool isDishClean)
-    {
-        SaveData data = new SaveData();
-        data.playerPosition = position;
-        data.isDishClean = isDishClean;
-
-        string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(filePath, json);
-
-        Debug.Log("Game Saved!");
-    }
-
-    public SaveData LoadPlayerData()
-    {
-        if (File.Exists(filePath))
+        // Синглтон, чтобы скрипт не дублировался
+        if (Instance == null)
         {
-            string json = File.ReadAllText(filePath);
-            SaveData data = JsonUtility.FromJson<SaveData>(json);
-            Debug.Log("Game Loaded!");
-            return data;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Debug.LogWarning("Save file not found!");
-            return null;
+            Destroy(gameObject);
         }
     }
-}
 
+    public void SaveGame(string sceneName, int progressValue)
+    {
+        PlayerPrefs.SetString("LastScene", sceneName);
+        PlayerPrefs.SetInt("ProgressValue", progressValue);
+        PlayerPrefs.Save();
+        Debug.Log("Игра сохранена: " + sceneName + ", значение: " + progressValue);
+    }
+
+    public void LoadGame()
+    {
+        string sceneName = PlayerPrefs.GetString("LastScene", "04_StrangeScene");
+        int progressValue = PlayerPrefs.GetInt("ProgressValue", 0);
+
+        Debug.Log("Загрузка сцены: " + sceneName + ", сохраненное значение: " + progressValue);
+        SceneManager.LoadScene(sceneName);
+        // А значение можешь применить после загрузки
+    }
+    public int GetProgress()
+    {
+        return PlayerPrefs.GetInt("ProgressValue", 0);
+    }
+
+    public void SetProgress(int newValue)
+    {
+        PlayerPrefs.SetInt("ProgressValue", newValue);
+        PlayerPrefs.Save();
+    }
+
+    public void AddToProgress(int amount)
+    {
+        int current = GetProgress();
+        SetProgress(current + amount);
+    }
+    public void ResetSave()
+    {
+        PlayerPrefs.DeleteKey("ProgressValue");
+        PlayerPrefs.DeleteKey("LastScene");
+        PlayerPrefs.Save();
+        Debug.Log("Сохранения сброшены!");
+    }
+}

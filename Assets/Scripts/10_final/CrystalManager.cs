@@ -17,8 +17,6 @@ public class CrystalManager : MonoBehaviour
         {
             Material mat = renderer.material;
             mat.EnableKeyword("_EMISSION");
-          //  mat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
-          //  mat.SetColor("_EmissionColor", Color.black);
         }
     }
 
