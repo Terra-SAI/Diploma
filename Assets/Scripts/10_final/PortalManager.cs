@@ -41,8 +41,8 @@ public class PortalManager : MonoBehaviour
                 {
                     if (inventoryManager.HasItemsWithIds(requiredItemIds))
                     {
-                        SaveManager.Instance.ResetSave();
-                        SceneManager.LoadScene("00_Menu");
+                       // SaveManager.Instance.ResetSave();
+                        SceneManager.LoadScene("12_Dancing");
                     }
                     else 
                     { 
