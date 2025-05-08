@@ -29,7 +29,7 @@ public class SaveManager : MonoBehaviour
 
     public void LoadGame()
     {
-        string sceneName = PlayerPrefs.GetString("LastScene", "04_StrangeScene");
+        string sceneName = PlayerPrefs.GetString("LastScene", "01_Tut");
         int progressValue = PlayerPrefs.GetInt("ProgressValue", 0);
 
         Debug.Log("Загрузка сцены: " + sceneName + ", сохраненное значение: " + progressValue);

@@ -551,6 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d45d15caf2825f4cbc058a7fdde4abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalParam: -20
   cameraManager: {fileID: 9096603160876333627}
   cameraMain: {fileID: 1721485890252237689}
   lightCamera: {fileID: 1028551486}
@@ -4213,6 +4214,10 @@ PrefabInstance:
     - target: {fileID: 1784734242574358516, guid: 1ad832d9a445b6e49903fb02e0d17771, type: 3}
       propertyPath: m_Center.z
       value: -3.9886873
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784734242574358516, guid: 1ad832d9a445b6e49903fb02e0d17771, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8546,6 +8551,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -2.86
       objectReference: {fileID: 0}
+    - target: {fileID: 1784734242574358516, guid: 1ad832d9a445b6e49903fb02e0d17771, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11258,7 +11267,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 33.294678, y: 59.8, z: 15.817429}
   m_Center: {x: 2.955706, y: 6.3963146, z: -2.908707}
@@ -12196,6 +12205,10 @@ PrefabInstance:
     - target: {fileID: 3286556218039849499, guid: 380eb8717f798de4ea2c3fadc03607cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407828076218037817, guid: 380eb8717f798de4ea2c3fadc03607cf, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15278,6 +15291,10 @@ PrefabInstance:
     - target: {fileID: 1784734242574358516, guid: 1ad832d9a445b6e49903fb02e0d17771, type: 3}
       propertyPath: m_Size.z
       value: 25.063763
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784734242574358516, guid: 1ad832d9a445b6e49903fb02e0d17771, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1784734242574358516, guid: 1ad832d9a445b6e49903fb02e0d17771, type: 3}
       propertyPath: m_Center.x
@@ -21664,6 +21681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1721485890252237689}
+  distance: 70
 --- !u!114 &8055823401699689575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21676,6 +21694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bbcad742aca29343be59cc4851784f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalParam: -2
   dialog: {fileID: 1257036831}
   mainCamera: {fileID: 1721485890252237689}
 --- !u!114 &8055823401699689576
@@ -22481,9 +22500,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOnDish: 0
+  isOnSocks: 0
   isOnWash: 0
   isOnLamp: 0
   isOnCoder: 0
+  isOnDialog: 0
+  isOnMainScene: 0
 --- !u!4 &9096749203266173327
 Transform:
   m_ObjectHideFlags: 0

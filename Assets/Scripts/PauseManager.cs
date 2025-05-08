@@ -12,6 +12,7 @@ public class PauseManager : MonoBehaviour
     {
         panel.SetActive(false);
         pauseButton.SetActive(true);
+        Time.timeScale = 1f;
     }
     public void Pause(GameManager gameManager)
     {
