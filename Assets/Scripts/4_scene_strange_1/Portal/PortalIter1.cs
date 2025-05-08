@@ -24,6 +24,7 @@ public class PortalIter1 : MonoBehaviour
 
                 if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
+                    SaveManager.Instance.SaveGame("09_Last", SaveManager.Instance.GetProgress());
                     SceneManager.LoadScene("09_Last");
                 }
             }

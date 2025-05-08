@@ -38,6 +38,7 @@ public class BedIter : MonoBehaviour
                     {
                         if (Lamp_GM.isLightOff2 && Switcher_GM.isLightOff1)
                         {
+                            SaveManager.Instance.SaveGame("08_Coffin scene", SaveManager.Instance.GetProgress());
                             SceneManager.LoadScene("08_Coffin scene");
                         }
                         else StartDialog(dialog2);

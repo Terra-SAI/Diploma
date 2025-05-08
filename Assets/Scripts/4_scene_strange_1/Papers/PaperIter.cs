@@ -10,6 +10,9 @@ public class PaperIter : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject paperCamera;
 
+    [Space]
+    [SerializeField] private float distance = 70f;
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -21,7 +24,7 @@ public class PaperIter : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<PaperItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     //CamManager.isOnCoder = true;
                     CamManager.Switch(mainCamera, paperCamera);

@@ -11,6 +11,8 @@ public class CoderIter : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject coderCamera;
 
+    [Space]
+    [SerializeField] private float distance = 70f;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -22,7 +24,7 @@ public class CoderIter : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<CoderItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     CamManager.isOnCoder = true;
                     CamManager.Switch(mainCamera, coderCamera);

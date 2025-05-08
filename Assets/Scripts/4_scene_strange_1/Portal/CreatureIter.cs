@@ -19,10 +19,14 @@ public class CreatureIter : MonoBehaviour
     [SerializeField] private List<int> requiredItemIds = new List<int> { 5 };
     [SerializeField] private Item diamond;
 
+    [Space]
+    [SerializeField] private float distance = 70f;
+    bool isPortal = false;
 
     private void Start()
     {
         portal.SetActive(false);
+        isPortal = false;
     }
 
     private void Update()
@@ -36,13 +40,15 @@ public class CreatureIter : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<CreatureItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
-                    if (inventoryManager.HasItemsWithIds(requiredItemIds))
+                    if (isPortal) StartDialog(dialogNew);
+                    else if (inventoryManager.HasItemsWithIds(requiredItemIds))
                     {
                         inventoryManager.RemoveItem(diamond);
                         StartDialog(dialogNew);
                         portal.SetActive(true);
+                        isPortal = true;
                     }
                     else
                     {

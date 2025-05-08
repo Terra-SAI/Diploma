@@ -10,20 +10,11 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject tutorial;
     [SerializeField] private GameObject menu;
 
-    [Space]
-    [SerializeField] private GameObject start;
-    [SerializeField] private GameObject cont;
-    [SerializeField] private GameObject tut;
-    [SerializeField] private GameObject exit;
 
     private void Start()
     {
         tutorial.SetActive(false);
         menu.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(start);
-        EventSystem.current.SetSelectedGameObject(cont);
-        EventSystem.current.SetSelectedGameObject(tut);
-        EventSystem.current.SetSelectedGameObject(exit);
     }
 
     public void StartGame()
