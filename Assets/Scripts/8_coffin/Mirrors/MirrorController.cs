@@ -13,8 +13,11 @@ public class MirrorController : MonoBehaviour
     [SerializeField] private LightMovement move;
     private Vector3 offset;
 
+    [SerializeField] private CamManager cameraManager;
+
     void Update()
     {
+        if (!cameraManager.isOnMirror) return;
         if (move.isAlive) return;
         if (Input.GetMouseButtonDown(0))
         {

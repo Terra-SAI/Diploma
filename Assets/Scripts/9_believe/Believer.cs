@@ -15,7 +15,7 @@ public class Believer : MonoBehaviour
 
     public void DoNotBelieve()
     {
-        SaveManager.Instance.AddToProgress(-normalParam);
+        SaveManager.Instance.AddToProgress(-1*normalParam);
         SaveManager.Instance.SaveGame("10_Final", SaveManager.Instance.GetProgress());
         SceneManager.LoadScene("10_Final");
     }

@@ -36,6 +36,8 @@ public class LightIter : MonoBehaviour
                 {
                     if (inventoryManager.CountItemsWithIds(requiredItemIds[0]) == 3)
                     {
+                        CamManager.isOnMain = false;
+                        CamManager.isOnMirror = true;
                         CamManager.Switch(mainCamera, lightCamera);
                     }
                 }

@@ -319,6 +319,7 @@ MonoBehaviour:
   moveSpeed: 2
   camera: {fileID: 1028551488}
   move: {fileID: 0}
+  cameraManager: {fileID: 0}
 --- !u!65 &47796367
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -392,6 +393,7 @@ MonoBehaviour:
   moveSpeed: 2
   camera: {fileID: 1028551488}
   move: {fileID: 0}
+  cameraManager: {fileID: 0}
 --- !u!65 &50362991
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -569,6 +571,7 @@ MonoBehaviour:
   - {fileID: 451993517}
   - {fileID: 1953125836}
   offset: 2
+  cameraManager: {fileID: 9096603160876333627}
   isAlive: 0
 --- !u!114 &64216593
 MonoBehaviour:
@@ -654,6 +657,7 @@ MonoBehaviour:
   moveSpeed: 2
   camera: {fileID: 1028551488}
   move: {fileID: 64216592}
+  cameraManager: {fileID: 9096603160876333627}
 --- !u!65 &83441941
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7792,6 +7796,7 @@ MonoBehaviour:
   moveSpeed: 2
   camera: {fileID: 1028551488}
   move: {fileID: 64216592}
+  cameraManager: {fileID: 9096603160876333627}
 --- !u!65 &1115205220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7865,6 +7870,7 @@ MonoBehaviour:
   moveSpeed: 2
   camera: {fileID: 1028551488}
   move: {fileID: 0}
+  cameraManager: {fileID: 0}
 --- !u!65 &1125519465
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10645,6 +10651,7 @@ MonoBehaviour:
   moveSpeed: 2
   camera: {fileID: 1028551488}
   move: {fileID: 64216592}
+  cameraManager: {fileID: 9096603160876333627}
 --- !u!65 &1575426365
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22885,13 +22892,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78e02684dd1f3144a2309771e695d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOnMain: 0
   isOnDish: 0
   isOnSocks: 0
+  isOnWindow: 0
   isOnWash: 0
   isOnLamp: 0
   isOnCoder: 0
+  isOnMirror: 0
   isOnDialog: 0
-  isOnMainScene: 0
 --- !u!4 &9096749203266173327
 Transform:
   m_ObjectHideFlags: 0

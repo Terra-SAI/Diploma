@@ -52,9 +52,9 @@ public class LightGM : MonoBehaviour
 
     public void LoadMainScene()
     {
+        cameraManager.isOnMain = true;
+        cameraManager.isOnMirror = false;
         continueButton.gameObject.SetActive(false);
         cameraManager.Switch(lightCamera, cameraMain);
-
-
     }
 }

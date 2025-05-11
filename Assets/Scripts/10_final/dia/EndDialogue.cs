@@ -23,6 +23,7 @@ public class EndDialogue : MonoBehaviour
     [SerializeField] private GameObject tree1;
     [SerializeField] private GameObject tree2;
 
+    [SerializeField] private CamManager cameraManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,16 +37,23 @@ public class EndDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dialogueTrigger.canCommunicate && IsAnimationPlaying(diaAnim, "Base Layer.hide"))
+        if (!dialogueTrigger.canCommunicate)
         {
-            if (isShown) { return; }
-            else
+           
+            
+            if (IsAnimationPlaying(diaAnim, "Base Layer.hide"))
             { 
-                isShown = true;
-                putButton.gameObject.SetActive(true);
-                if (SaveManager.Instance.GetProgress() <= boarder)
+                if (isShown) { return; }
+                else
                 {
-                    runButton.gameObject.SetActive(true);
+                    isShown = true;
+                    cameraManager.isOnDialog = true;
+                    cameraManager.isOnMain = false;
+                    putButton.gameObject.SetActive(true);
+                    if (SaveManager.Instance.GetProgress() <= boarder)
+                    {
+                        runButton.gameObject.SetActive(true);
+                    }
                 }
             }
         }
@@ -53,6 +61,8 @@ public class EndDialogue : MonoBehaviour
 
     public void Put()
     {
+        cameraManager.isOnDialog = false;
+        cameraManager.isOnMain = true;
         amuletIcon1.gameObject.SetActive(false);
         amuletIcon2.gameObject.SetActive(false);
         putButton.gameObject.SetActive(false);
@@ -63,6 +73,10 @@ public class EndDialogue : MonoBehaviour
     }
     public void Run()
     {
+        cameraManager.isOnDialog = false;
+        cameraManager.isOnMain = true;
+        amuletIcon1.gameObject.SetActive(false);
+        amuletIcon2.gameObject.SetActive(false);
         putButton.gameObject.SetActive(false);
         runButton.gameObject.SetActive(false);
 

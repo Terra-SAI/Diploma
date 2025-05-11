@@ -10,6 +10,8 @@ public class LightMovement : MonoBehaviour
 
     [SerializeField] private float offset = 2f;
 
+    [SerializeField] private CamManager cameraManager;
+
     public bool isAlive = false;
 
     void Start()
@@ -24,6 +26,7 @@ public class LightMovement : MonoBehaviour
 
     void Update()
     {
+        if (!cameraManager.isOnMirror) return;
         if (isAlive) return;
         if (mirrors[2].transform.position.y < mirrorsTarget[2].transform.position.y + offset && mirrors[2].transform.position.y > mirrorsTarget[2].transform.position.y - offset)
         {
