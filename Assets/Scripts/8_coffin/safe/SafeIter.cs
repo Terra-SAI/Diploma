@@ -15,6 +15,9 @@ public class SafeIter : MonoBehaviour
     [SerializeField] private Item item;
     [SerializeField] private GameObject book;
 
+    [Space]
+    [SerializeField] private float distance = 70f;
+
     private bool isAdded = false;
     private void Start()
     {
@@ -32,7 +35,7 @@ public class SafeIter : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<SafeItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     if (inventoryManager.HasItemsWithIds(requiredItemIds))
                     {

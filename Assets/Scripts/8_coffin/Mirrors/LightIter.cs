@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LightIter : MonoBehaviour
@@ -14,6 +15,8 @@ public class LightIter : MonoBehaviour
 
     [Space] public InventoryManager inventoryManager;
     [SerializeField] private List<int> requiredItemIds = new List<int> { 3 };
+    [Space]
+    [SerializeField] private float distance = 70f;
 
 
     // Update is called once per frame
@@ -29,7 +32,7 @@ public class LightIter : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<LightItem>();
 
-                if (commItem != null)
+                if (commItem != null&& Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     if (inventoryManager.CountItemsWithIds(requiredItemIds[0]) == 3)
                     {

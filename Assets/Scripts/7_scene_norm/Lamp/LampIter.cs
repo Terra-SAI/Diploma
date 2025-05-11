@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LampIter : MonoBehaviour
@@ -10,6 +11,9 @@ public class LampIter : MonoBehaviour
     [Space]
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject lampCamera;
+
+    [Space]
+    [SerializeField] private float distance = 70f;
 
     void Update()
     {
@@ -22,7 +26,7 @@ public class LampIter : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<LampItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     if (LampGM.isLightOff2) return;
                     CamManager.isOnLamp = true;

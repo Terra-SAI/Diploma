@@ -10,6 +10,9 @@ public class deadIter : MonoBehaviour
     public dialog_new_trigger dialog;
     [Space]
     [SerializeField] private GameObject mainCamera;
+
+    [Space]
+    [SerializeField] private float distance = 70f;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -21,7 +24,7 @@ public class deadIter : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<CommItemNew>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     SaveManager.Instance.AddToProgress(normalParam);
                     StartDialog();

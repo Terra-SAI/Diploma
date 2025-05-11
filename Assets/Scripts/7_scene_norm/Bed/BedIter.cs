@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,9 +14,11 @@ public class BedIter : MonoBehaviour
     [SerializeField] private LampGM Lamp_GM;
     [SerializeField] private SwitcherIter Switcher_GM;
 
-
    [Space]
     [SerializeField] private GameObject mainCamera;
+
+    [Space]
+    [SerializeField] private float distance = 70f;
 
     //[Space]
     //public bool canSleep = false;
@@ -32,7 +35,7 @@ public class BedIter : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<BedItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     if (Washing_GM.isWashing && Window_GM.isWindowDone)
                     {

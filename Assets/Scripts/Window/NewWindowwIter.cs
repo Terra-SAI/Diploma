@@ -16,6 +16,9 @@ public class NewWindowwIter : MonoBehaviour
     [SerializeField] private int nerves;
     [SerializeField] private GameObject exitButton;
     [SerializeField] private GameObject enterButton;
+
+    [Space]
+    [SerializeField] private float distance = 70f;
     // Start is called before the first frame update
     void Start()
     {

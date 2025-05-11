@@ -19,6 +19,7 @@ public class Dialogue_scene : MonoBehaviour
     {
         if (IsAnimationPlaying("Base Layer.hide"))
         {
+            SaveManager.Instance.SaveGame("07_RoomEvening", SaveManager.Instance.GetProgress());
             SceneManager.LoadScene("07_RoomEvening");
         }
     }

@@ -22,19 +22,19 @@ public class CurrentItem : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-      if (eventData.button == PointerEventData.InputButton.Right)
-        {
-            if (inventory.item[index].id != 0 )
-            {
-                GameObject dropped = Instantiate(Resources.Load<GameObject>(inventory.item[index].pathPrefab));
-                dropped.transform.position = invObject.transform.position * 1.2f;
+      //if (eventData.button == PointerEventData.InputButton.Right)
+      //  {
+      //      if (inventory.item[index].id != 0 )
+      //      {
+      //          GameObject dropped = Instantiate(Resources.Load<GameObject>(inventory.item[index].pathPrefab));
+      //          dropped.transform.position = invObject.transform.position * 1.2f;
 
-                if (inventory.item[index].countItem > 1)
-                { inventory.item[index].countItem--; }
-                else { inventory.item[index] = new Item(); }
-                inventory.DisplayItem();
-            }
-        }
+      //          if (inventory.item[index].countItem > 1)
+      //          { inventory.item[index].countItem--; }
+      //          else { inventory.item[index] = new Item(); }
+      //          inventory.DisplayItem();
+      //      }
+      //  }
     }
 
 

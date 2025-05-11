@@ -39,6 +39,7 @@ public class DoorInteraction : MonoBehaviour
                 {
                     if (inventoryManager.HasItemsWithIds(requiredItemIds) && dishManager.isFinished && Window_GM.isWindowDone)
                     {
+                        SaveManager.Instance.SaveGame("06_Dialogue", SaveManager.Instance.GetProgress());
                         // ≈сли можно пройти, снимаем коллайдер с двери
                         SceneManager.LoadScene("06_Dialogue");
                     }

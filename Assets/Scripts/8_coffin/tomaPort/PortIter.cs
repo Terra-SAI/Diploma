@@ -14,6 +14,9 @@ public class PortIter : MonoBehaviour
     [Space]
     [SerializeField] private GameObject textPanel;
 
+    [Space]
+    [SerializeField] private float distance = 70f;
+
     private int count = 0;
 
 
@@ -33,7 +36,7 @@ public class PortIter : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 1000))
             {
-                if (hit.collider.TryGetComponent<PortItem>(out PortItem commItem))
+                if (hit.collider.TryGetComponent<PortItem>(out PortItem commItem) && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     commItem.ActivateComment();
                     keys.SetActive(true);

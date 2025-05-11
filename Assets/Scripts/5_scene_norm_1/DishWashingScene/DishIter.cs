@@ -10,7 +10,9 @@ public class DishIter : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject dishCamera;
 
-   // [Space] public InventoryManager inventoryManager;
+    [Space]
+    [SerializeField] private float distance = 70f;
+    // [Space] public InventoryManager inventoryManager;
     //[SerializeField] private List<int> requiredItemIds = new List<int> { 3 };
 
 
@@ -26,7 +28,7 @@ public class DishIter : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<dishItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     CamManager.Switch(mainCamera, dishCamera);
                     CamManager.isOnDish = true;

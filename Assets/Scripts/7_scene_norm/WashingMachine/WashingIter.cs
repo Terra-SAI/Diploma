@@ -20,6 +20,9 @@ public class WashingIter : MonoBehaviour
     [Space] public InventoryManager inventoryManager;
     [SerializeField] private List<int> requiredItemIds = new List<int> {4};
 
+    [Space]
+    [SerializeField] private float distance = 70f;
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -31,7 +34,7 @@ public class WashingIter : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<WashingItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     if (Washing_GM.isWashing) return;
                     if (inventoryManager.HasItemsWithIds(requiredItemIds))

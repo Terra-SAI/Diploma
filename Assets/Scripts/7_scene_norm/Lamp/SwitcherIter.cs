@@ -10,6 +10,8 @@ public class SwitcherIter : MonoBehaviour
 
     public bool isLightOff1 = false;
 
+    [Space]
+    [SerializeField] private float distance = 70f;
     private void Start()
     {
         mainLight.SetActive(true);
@@ -27,7 +29,7 @@ public class SwitcherIter : MonoBehaviour
             {
                 var commItem = hit.collider.GetComponent<SwitcherItem>();
 
-                if (commItem != null)
+                if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     // mainLight.SetActive(false);
                     Light light = mainLight.GetComponent<Light>();

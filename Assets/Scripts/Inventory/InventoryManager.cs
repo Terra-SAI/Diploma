@@ -22,20 +22,20 @@ public class InventoryManager : MonoBehaviour
         item = new List<Item>();
         cellContainer.SetActive(false);
 
-        NumItems();
+       // NumItems();
 
         for (int i = 1; i < cellContainer.transform.childCount; i++)
         {
             item.Add(new Item());
         }
     }
-    void NumItems()
-    {
-        for (int i = 1; i < cellContainer.transform.childCount; i++)
-        {
-            cellContainer.transform.GetChild(i).GetComponent<CurrentItem>().index = i;
-        }
-    }
+    //void NumItems()
+    //{
+    //    for (int i = 1; i < cellContainer.transform.childCount; i++)
+    //    {
+    //        cellContainer.transform.GetChild(i).GetComponent<CurrentItem>().index = i;
+    //    }
+    //}
 
     void Update()
     {
@@ -113,7 +113,7 @@ public class InventoryManager : MonoBehaviour
         if (collision.CompareTag("Item"))
         {
             nearbyItem = collision.GetComponent<Collider>().GetComponent<Item>();
-        //  Debug.Log($"nearby: {nearbyItem.name}");
+            //  Debug.Log($"nearby: {nearbyItem.name}");
         }
     }
 
@@ -124,7 +124,7 @@ public class InventoryManager : MonoBehaviour
             if (nearbyItem == collision.GetComponent<Collider>().GetComponent<Item>())
             {
                 nearbyItem = null;
-              //Debug.Log("no nearby");
+                //Debug.Log("no nearby");
             }
         }
     }

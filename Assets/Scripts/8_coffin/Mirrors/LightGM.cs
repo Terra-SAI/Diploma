@@ -16,6 +16,8 @@ public class LightGM : MonoBehaviour
     [Space]
     [SerializeField] private GameObject MaryOld;
     [SerializeField] private GameObject MaryNew;
+    [Space]
+    [SerializeField] private GameObject lighy1;
 
     [Space]
     [SerializeField] private GameObject continueButton;
@@ -27,6 +29,7 @@ public class LightGM : MonoBehaviour
         MaryOld.gameObject.SetActive(true);
         MaryNew.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
+        lighy1.gameObject.SetActive(true);
         isAlive = false;
     }
     void Update()
@@ -36,6 +39,7 @@ public class LightGM : MonoBehaviour
         if (move.isAlive)
         {
             MaryOld.gameObject.SetActive(false);
+            lighy1.gameObject.SetActive(false);
             MaryNew.gameObject.SetActive(true);
 
             continueButton.gameObject.SetActive(true);

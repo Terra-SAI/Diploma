@@ -5,8 +5,10 @@ using UnityEngine;
 public class OldIter : MonoBehaviour
 {
     [SerializeField] private Camera camera;
+    [Space]
+    [SerializeField] private float distance = 70f;
 
-   // private int count = 0;
+    // private int count = 0;
 
     void Update()
     {
@@ -18,7 +20,7 @@ public class OldIter : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 1000))
             {
                 Debug.Log(hit.transform.name);
-                if (hit.collider.TryGetComponent<OldItem>(out OldItem commItem))
+                if (hit.collider.TryGetComponent<OldItem>(out OldItem commItem) && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     if (commItem.count == 1)
                     { 
