@@ -272,10 +272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f768965b7a69d4db0da7c40112a36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraManager: {fileID: 6812313754443137044}
   fixedY: 54
   moveAreaMin: {x: 1450, y: 135}
   moveAreaMax: {x: 1480, y: 150}
-  sockCamera: {fileID: 8588454056761804331}
+  sockCamera: {fileID: 7427032899981806953}
 --- !u!114 &91489981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11286,8 +11287,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78e02684dd1f3144a2309771e695d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOnMain: 0
   isOnDish: 0
   isOnSocks: 0
+  isOnWindow: 0
   isOnWash: 0
   isOnLamp: 0
   isOnCoder: 0
@@ -14534,6 +14537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02372c869cbf67c4c8e1cd6c78a9e5c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  window: {fileID: 6812313754443137044}
   windowCamera: {fileID: 7231497862190784340}
   minX: -3111
   maxX: -3068

@@ -6,6 +6,7 @@ public class StartBut : MonoBehaviour
 {
     [SerializeField] private Camera washingCamera;
     [SerializeField] private GameObject gameManager;
+    [SerializeField] private CamManager cameraManager;
 
     private Renderer buttonRenderer;
 
@@ -17,6 +18,7 @@ public class StartBut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!cameraManager.isOnWash) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = washingCamera.ScreenPointToRay(Input.mousePosition);

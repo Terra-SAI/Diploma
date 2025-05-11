@@ -36,9 +36,10 @@ public class Window_GM : MonoBehaviour
 
     public void LoadMainScene()
     {
+        cameraManager.isOnMain = true;
+        cameraManager.isOnWindow = false;
         continueButton.gameObject.SetActive(false);
-        cameraManager.Switch(windowCamera, cameraMain);
-        
+        cameraManager.Switch(windowCamera, cameraMain); 
     }
 
 

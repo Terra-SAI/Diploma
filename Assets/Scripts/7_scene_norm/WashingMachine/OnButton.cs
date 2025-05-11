@@ -6,10 +6,12 @@ public class OnButton : MonoBehaviour
 {
     [SerializeField] private Camera washingCamera;
     [SerializeField] private GameObject gameManager;
+    [SerializeField] private CamManager cameraManager;
 
     // Update is called once per frame
     void Update()
     {
+        if (!cameraManager.isOnWash) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = washingCamera.ScreenPointToRay(Input.mousePosition);

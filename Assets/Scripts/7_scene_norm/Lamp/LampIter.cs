@@ -29,6 +29,7 @@ public class LampIter : MonoBehaviour
                 if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     if (LampGM.isLightOff2) return;
+                    CamManager.isOnMain = false;
                     CamManager.isOnLamp = true;
                     CamManager.Switch(mainCamera, lampCamera);
                 }

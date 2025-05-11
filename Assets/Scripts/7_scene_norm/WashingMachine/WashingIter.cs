@@ -39,6 +39,7 @@ public class WashingIter : MonoBehaviour
                     if (Washing_GM.isWashing) return;
                     if (inventoryManager.HasItemsWithIds(requiredItemIds))
                     {
+                        CamManager.isOnMain = false;
                         CamManager.Switch(mainCamera, washingCamera);
                         CamManager.isOnWash = true;
                         inventoryManager.RemoveItem(book);

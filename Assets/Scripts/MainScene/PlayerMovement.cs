@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        cameraManager.isOnMain = true;
         rb = GetComponent<Rigidbody>(); 
         animator = GetComponent<Animator>();
         rb.freezeRotation = true; 
@@ -18,14 +19,12 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (cameraManager.isOnDish)
-        {
-            return;
-        }
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        if (!cameraManager.isOnMain) return;
+        
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical).normalized;
+            Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical).normalized;
 
         if (movement.magnitude > 0.01f)
         {

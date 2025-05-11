@@ -3020,6 +3020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   washingCamera: {fileID: 1464622315}
   gameManager: {fileID: 188967458}
+  cameraManager: {fileID: 7521574349396409309}
 --- !u!1 &1168819949
 GameObject:
   m_ObjectHideFlags: 0
@@ -5241,6 +5242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   washingCamera: {fileID: 1464622315}
   gameManager: {fileID: 188967458}
+  cameraManager: {fileID: 7521574349396409309}
 --- !u!23 &1817481984
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5442,6 +5444,7 @@ MonoBehaviour:
   - {fileID: 2052492264}
   - {fileID: 833694968}
   - {fileID: 1780639066}
+  cameraManager: {fileID: 7521574349396409309}
 --- !u!1001 &1831106166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7976,6 +7979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02372c869cbf67c4c8e1cd6c78a9e5c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  window: {fileID: 7521574349396409309}
   windowCamera: {fileID: 1100747274849581670}
   minX: -3111
   maxX: -3068
@@ -15849,13 +15853,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78e02684dd1f3144a2309771e695d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOnMain: 0
   isOnDish: 0
   isOnSocks: 0
+  isOnWindow: 0
   isOnWash: 0
   isOnLamp: 0
   isOnCoder: 0
+  isOnMirror: 0
   isOnDialog: 0
-  isOnMainScene: 0
 --- !u!1001 &7542055248530537141
 PrefabInstance:
   m_ObjectHideFlags: 0

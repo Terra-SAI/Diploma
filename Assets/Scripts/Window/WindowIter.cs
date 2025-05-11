@@ -49,6 +49,8 @@ public class WindowIter : MonoBehaviour
                     if (count < nerves) {
                         if (!Window_GM.isWindowDone)
                         {
+                            CamManager.isOnMain = false;
+                            CamManager.isOnWindow = true;
                             CamManager.Switch(mainCamera, windowCamera);
                         }
                         else

@@ -54,6 +54,8 @@ public class Washing_GM : MonoBehaviour
     public void LoadMainScene()
     {
         isWashing = true;
+        cameraManager.isOnMain = true;
+        cameraManager.isOnWash = false;
         instructions.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
         cameraManager.Switch(washingCamera, cameraMain);

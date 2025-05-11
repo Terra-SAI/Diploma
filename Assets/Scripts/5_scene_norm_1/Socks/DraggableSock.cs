@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class DraggableSock : MonoBehaviour
 {
+  //  [SerializeField] private CamManager cameraManager;
+
     [SerializeField] private float fixedY = 0f;
     [SerializeField] private Vector2 moveAreaMin;
     [SerializeField] private Vector2 moveAreaMax;
+
  //   [SerializeField] private Material highlightMaterial;
 
     // [SerializeField] private
@@ -20,7 +23,7 @@ public class DraggableSock : MonoBehaviour
 
     void Start()
     {
-        //mainCamera = Camera.main;
+      //  cameraManager.isOnSocks = false;
         sockRenderer = GetComponentInChildren<Renderer>();
         if (sockRenderer != null)
         {
@@ -30,6 +33,7 @@ public class DraggableSock : MonoBehaviour
 
     void OnMouseDown()
     {
+     //   if (!cameraManager.isOnSocks) return;
         isDragging = true;
         moved = false;
         initialMousePosition = GetMouseWorldPosition();
@@ -40,6 +44,7 @@ public class DraggableSock : MonoBehaviour
 
     void OnMouseDrag()
     {
+     //   if (!cameraManager.isOnSocks) return;
         if (!isDragging) return;
 
         Vector3 currentMousePos = GetMouseWorldPosition();
@@ -58,6 +63,7 @@ public class DraggableSock : MonoBehaviour
 
     void OnMouseUp()
     {
+      //  if (!cameraManager.isOnSocks) return;
         if (!moved)
         {
             EnableEmission();

@@ -21,6 +21,7 @@ public class GameManagerDish : MonoBehaviour
 
     void Start()
     {
+        cameraManager.isOnDish = false;
         // Прячем UI элементы
         gameOverText.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
@@ -56,6 +57,7 @@ public class GameManagerDish : MonoBehaviour
     {
        
         cameraManager.isOnDish = false;
+        cameraManager.isOnMain = true;
         gameOverText.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
 

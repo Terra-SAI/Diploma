@@ -47,6 +47,8 @@ public class Sock_Manager : MonoBehaviour
 
     public void LoadMainScene()
     {
+        cameraManager.isOnMain = true;
+        cameraManager.isOnSocks = false;
         isContinued = true;
         continueButton.gameObject.SetActive(false);
         cameraManager.Switch(sockCamera, cameraMain);

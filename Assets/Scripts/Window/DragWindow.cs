@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DragWindow : MonoBehaviour
 {
+    [SerializeField] private CamManager window;
     [SerializeField] private Camera windowCamera;
     [SerializeField] private float minX = -3111f;
     [SerializeField] private float maxX = -3068f;
@@ -14,6 +15,7 @@ public class DragWindow : MonoBehaviour
    
     void Update()
     {
+        if (!window.isOnWindow) { return;  }
        
         if (Input.GetMouseButtonDown(0))
         {

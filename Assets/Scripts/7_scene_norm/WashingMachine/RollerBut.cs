@@ -7,6 +7,7 @@ public class RollerBut : MonoBehaviour
     [SerializeField] private Camera washingCamera;
     [SerializeField] private GameObject gameManager;
     [SerializeField] private List<GameObject> panels = new();
+    [SerializeField] private CamManager cameraManager;
 
     private int count = 0;
 
@@ -23,6 +24,7 @@ public class RollerBut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!cameraManager.isOnWash) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = washingCamera.ScreenPointToRay(Input.mousePosition);

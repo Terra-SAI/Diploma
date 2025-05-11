@@ -32,6 +32,7 @@ public class DishIter : MonoBehaviour
                 {
                     CamManager.Switch(mainCamera, dishCamera);
                     CamManager.isOnDish = true;
+                    CamManager.isOnMain = false;
                 }
             }
         }

@@ -38,6 +38,8 @@ public class SockIteract : MonoBehaviour
                     }
                     else 
                     {
+                        CamManager.isOnMain = false;
+                        CamManager.isOnSocks = true;
                         CamManager.Switch(mainCamera, sockCamera);
                     }
                 }

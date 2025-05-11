@@ -57,6 +57,8 @@ public class LampGM : MonoBehaviour
 
     public void LoadMainScene()
     {
+        cameraManager.isOnMain = true;
+        cameraManager.isOnLamp = false;
         continueButton.gameObject.SetActive(false);
         cameraManager.Switch(lampCamera, cameraMain);
 
