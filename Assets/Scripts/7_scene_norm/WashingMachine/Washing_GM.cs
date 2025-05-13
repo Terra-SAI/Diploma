@@ -38,17 +38,26 @@ public class Washing_GM : MonoBehaviour
     {
         if (isWashing) { return; }
         if (cameraManager.isOnWash) instructions.gameObject.SetActive(true);
-        if (!isOn) isStarted = false;
-        else if (count != targetNum) {
-            EnableEmission(onButton);
-            isStarted = false; 
-        }
-        else if (isStarted)
+        if (!isOn)
         {
-            EnableEmission(startButton);
-            isStarted = true;
-            continueButton.gameObject.SetActive(true);
-           // instructions.gameObject.SetActive(true);
+            isStarted = false;
+            //  EnableEmission(onButton);
+        }
+        else if (isOn)
+        {
+            EnableEmission(onButton);
+            if (count != targetNum)
+            {
+                // EnableEmission(onButton);
+                isStarted = false;
+            }
+            else if (isStarted)
+            {
+                EnableEmission(startButton);
+                isStarted = true;
+                continueButton.gameObject.SetActive(true);
+                // instructions.gameObject.SetActive(true);
+            }
         }
     }
     public void LoadMainScene()

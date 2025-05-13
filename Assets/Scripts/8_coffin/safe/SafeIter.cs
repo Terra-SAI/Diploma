@@ -6,6 +6,7 @@ public class SafeIter : MonoBehaviour
 {
     //[SerializeField] private CamManager CamManager;
 
+    [SerializeField] private Item key;
     //[Space]
     [SerializeField] private GameObject mainCamera;
     //[SerializeField] private GameObject safeCamera;
@@ -43,6 +44,7 @@ public class SafeIter : MonoBehaviour
                         {
                             // CamManager.Switch(mainCamera, safeCamera);
                             inventoryManager.AddItemToInventory(item);
+                            inventoryManager.RemoveItem(key);
 
                             isAdded = true;
                         }

@@ -8,6 +8,11 @@ public class LightIter : MonoBehaviour
     [SerializeField] private CamManager CamManager;
 
     [Space]
+    [SerializeField] private Item mirror1;
+    [SerializeField] private Item mirror2;
+    [SerializeField] private Item mirror3;
+
+    [Space]
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject lightCamera;
     [Space]
@@ -36,6 +41,9 @@ public class LightIter : MonoBehaviour
                 {
                     if (inventoryManager.CountItemsWithIds(requiredItemIds[0]) == 3)
                     {
+                        inventoryManager.RemoveItem(mirror1);
+                        inventoryManager.RemoveItem(mirror2);
+                        inventoryManager.RemoveItem(mirror3);
                         CamManager.isOnMain = false;
                         CamManager.isOnMirror = true;
                         CamManager.Switch(mainCamera, lightCamera);

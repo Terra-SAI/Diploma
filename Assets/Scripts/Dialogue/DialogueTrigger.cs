@@ -26,6 +26,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     public bool canCommunicate = true;
+    public bool isStarted = false;
 
     public void TriggerDialogue()
     {
@@ -33,11 +34,12 @@ public class DialogueTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("We are in");
-        if (canCommunicate && collision.tag == "Player")
+      //  Debug.Log("We are in");
+        if (!isStarted && collision.tag == "Player")
         {
             TriggerDialogue();
-            canCommunicate = false;
+            isStarted = true;
+           // canCommunicate = false;
         }
     }
 

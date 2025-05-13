@@ -2797,8 +2797,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744933387}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 645.5, y: -34.688354, z: -71.6}
+  m_LocalRotation: {x: -0, y: -0.2671465, z: -0, w: 0.96365595}
+  m_LocalPosition: {x: 800.6, y: -7.2, z: -15.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2806,7 +2806,7 @@ Transform:
   - {fileID: 225399389}
   - {fileID: 1278931962}
   m_Father: {fileID: 178395050371173866}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -30.989, z: 0}
 --- !u!95 &744933389
 Animator:
   serializedVersion: 5
@@ -2850,7 +2850,7 @@ CapsuleCollider:
   m_Radius: 27.793571
   m_Height: 102.2
   m_Direction: 1
-  m_Center: {x: 145.5, y: 28.419998, z: 73.7}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &744933391
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2926,10 +2926,10 @@ MonoBehaviour:
     - character:
         name: "\u0421\u0443\u0449\u0435\u0441\u0442\u0432\u043E"
         icon: {fileID: 21300000, guid: 3db1c499eb523d540b6e7d8a30ab38e6, type: 3}
-      line: "\u0413\u0434\u0435-\u0442\u043E \u0437\u0434\u0435\u0441\u0442\u044C
-        \u0441\u043F\u0440\u044F\u0442\u0430\u043D \u043C\u0430\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439
-        \u043A\u0440\u0438\u0441\u0442\u0430\u043B\u043B, \u043A\u043E\u0442\u043E\u0440\u044B\u0439
-        \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u043D\u0430\u043C"
+      line: "\u0413\u0434\u0435-\u0442\u043E \u0437\u0434\u0435\u0441\u044C \u0441\u043F\u0440\u044F\u0442\u0430\u043D
+        \u043C\u0430\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043A\u0440\u0438\u0441\u0442\u0430\u043B\u043B,
+        \u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u043F\u043E\u043C\u043E\u0436\u0435\u0442
+        \u043D\u0430\u043C"
     - character:
         name: "\u0421\u0443\u0449\u0435\u0441\u0442\u0432\u043E"
         icon: {fileID: 21300000, guid: 3db1c499eb523d540b6e7d8a30ab38e6, type: 3}
@@ -2960,6 +2960,7 @@ MonoBehaviour:
         \u0432 \u043A\u0430\u0440\u043C\u0430\u043D\u0430\u0445. \u0410 \u0441\u0435\u0439\u0447\u0430\u0441
         \u043F\u0440\u043E\u0448\u0443. \u041D\u0430\u0439\u0434\u0438 \u043A\u0430\u043C\u0435\u043D\u044C!!"
   canCommunicate: 1
+  isStarted: 0
 --- !u!114 &744933394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2996,7 +2997,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 54.519592, y: 123.98613, z: 129.6159}
-  m_Center: {x: 142.94528, y: 28.82183, z: 59.807945}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &744933396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3405,15 +3406,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e730c45c92675224bb3b4c751c0ac55d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 144.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e730c45c92675224bb3b4c751c0ac55d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.6
+      value: -48.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e730c45c92675224bb3b4c751c0ac55d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 77.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e730c45c92675224bb3b4c751c0ac55d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4508,8 +4509,9 @@ MonoBehaviour:
         name: "\u0421\u0443\u0449\u0435\u0441\u0442\u0432\u043E"
         icon: {fileID: 21300000, guid: 3db1c499eb523d540b6e7d8a30ab38e6, type: 3}
       line: "\u041F\u043E\u044D\u0442\u043E\u043C\u0443, \u0441\u0435\u0439\u0447\u0430\u0441
-        \u0432\u043E\u0437\u0432\u0440\u0449\u0430\u0439\u0441\u044F \u0432 \u0441\u0432\u043E\u0439
-        \u043C\u0438\u0440. \u0410 \u043D\u043E\u0447\u044C\u044E \u043C\u044B \u0432\u0441\u0442\u0440\u0435\u0442\u0438\u043C\u0441\u044F
+        \u0432\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0439\u0441\u044F \u0432
+        \u0441\u0432\u043E\u0439 \u043C\u0438\u0440. \u0410 \u043D\u043E\u0447\u044C\u044E
+        \u043C\u044B \u0432\u0441\u0442\u0440\u0435\u0442\u0438\u043C\u0441\u044F
         \u0432\u043D\u043E\u0432\u044C"
     - character:
         name: "\u0422\u043E\u043C\u0430"
@@ -8353,7 +8355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e2b3f91323e24849b6f20d034f495a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -10.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e2b3f91323e24849b6f20d034f495a5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8361,7 +8363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e2b3f91323e24849b6f20d034f495a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e2b3f91323e24849b6f20d034f495a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17113,12 +17115,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogNew: {fileID: 1278931961}
   dialogOld: {fileID: 225399388}
+  dialogStart: {fileID: 744933393}
   portal: {fileID: 1419266469}
   camera: {fileID: 8882023513905391559}
   inventoryManager: {fileID: 6120233278271918529}
   requiredItemIds: 65000000
   diamond: {fileID: 188978951}
-  distance: 150
+  distance: 100
 --- !u!114 &9008228783517462991
 MonoBehaviour:
   m_ObjectHideFlags: 0

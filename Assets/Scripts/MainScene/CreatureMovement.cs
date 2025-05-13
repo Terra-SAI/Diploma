@@ -22,8 +22,9 @@ public class CreatureMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dialogueTrigger.canCommunicate && IsAnimationPlaying(diaAnim, "Base Layer.hide"))
+        if (IsAnimationPlaying(diaAnim, "Base Layer.hide"))
         {
+            dialogueTrigger.canCommunicate = false;
             animator.SetBool("hasTalked", true);
             amuletIcon1.gameObject.SetActive(true);
             amuletIcon2.gameObject.SetActive(true);

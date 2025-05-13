@@ -7,6 +7,7 @@ public class CreatureIter : MonoBehaviour
 {
     [SerializeField] private dialog_new_trigger dialogNew;
     [SerializeField] private dialog_new_trigger dialogOld;
+    [SerializeField] private DialogueTrigger dialogStart;
 
     [Space]
     [SerializeField] private GameObject portal;
@@ -42,17 +43,20 @@ public class CreatureIter : MonoBehaviour
 
                 if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
-                    if (isPortal) StartDialog(dialogNew);
-                    else if (inventoryManager.HasItemsWithIds(requiredItemIds))
+                    if (!dialogStart.canCommunicate)
                     {
-                        inventoryManager.RemoveItem(diamond);
-                        StartDialog(dialogNew);
-                        portal.SetActive(true);
-                        isPortal = true;
-                    }
-                    else
-                    {
-                        StartDialog(dialogOld);
+                        if (isPortal) StartDialog(dialogNew);
+                        else if (inventoryManager.HasItemsWithIds(requiredItemIds))
+                        {
+                            inventoryManager.RemoveItem(diamond);
+                            StartDialog(dialogNew);
+                            portal.SetActive(true);
+                            isPortal = true;
+                        }
+                        else
+                        {
+                            StartDialog(dialogOld);
+                        }
                     }
                 }
             }

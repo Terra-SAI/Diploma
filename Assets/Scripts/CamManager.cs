@@ -23,6 +23,7 @@ public class CamManager : CameraManager
 
     [HideInInspector]
     public bool isOnCoder = false;
+    [HideInInspector]
     public bool isOnMirror = false;
 
     //general scenes
