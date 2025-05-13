@@ -38,22 +38,22 @@ public class SafeIter : MonoBehaviour
 
                 if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
+                    if (isAdded)
+                    { book.gameObject.SetActive(true); }
                     if (inventoryManager.HasItemsWithIds(requiredItemIds))
                     {
-                        if (!isAdded)
-                        {
-                            // CamManager.Switch(mainCamera, safeCamera);
-                            inventoryManager.AddItemToInventory(item);
-                            inventoryManager.RemoveItem(key);
+                        // CamManager.Switch(mainCamera, safeCamera);
+                        inventoryManager.AddItemToInventory(item);
+                        inventoryManager.RemoveItem(key);
 
-                            isAdded = true;
-                        }
-
+                        isAdded = true;
                         book.gameObject.SetActive(true);
+                    }
+
+                      
 
                        // CamManager.isOnWash = true;
                         //inventoryManager.RemoveItem(book);
-                    }
                 }
             }
         }

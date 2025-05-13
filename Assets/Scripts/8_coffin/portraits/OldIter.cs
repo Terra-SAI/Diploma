@@ -22,15 +22,37 @@ public class OldIter : MonoBehaviour
                 Debug.Log(hit.transform.name);
                 if (hit.collider.TryGetComponent<OldItem>(out OldItem commItem) && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
-                    if (commItem.count == 1)
-                    { 
-                    commItem.oldP.SetActive(false);
+                    //if (commItem.count == 2)
+                    //{ 
+                    //commItem.oldP.SetActive(false);
+                    //    commItem.backP.SetActive(true);
+                    //    commItem.heart.SetActive(true);
+                    //    return;
+                    //}
+                    //commItem.count++;
+                    commItem.ActivateComment();
+                }
+            }
+        }
+        if (Input.GetMouseButtonDown(1)) // ËÊÌ
+        {
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                Debug.Log(hit.transform.name);
+                if (hit.collider.TryGetComponent<OldItem>(out OldItem commItem) && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
+                {
+                    //if (commItem.count == 2)
+                    //{
+                        commItem.oldP.SetActive(false);
                         commItem.backP.SetActive(true);
                         commItem.heart.SetActive(true);
-                        return;
-                    }
-                    commItem.count++;
-                    commItem.ActivateComment();
+                        //return;
+                    //}
+                    //commItem.count++;
+                    //commItem.ActivateComment();
                 }
             }
         }

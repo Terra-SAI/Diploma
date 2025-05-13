@@ -13,8 +13,7 @@ public class creatureDia : MonoBehaviour
         if (IsAnimationPlaying(diaAnim, "Base Layer.hide"))
         {
             dialogueTrigger.canCommunicate = false;
-            animator.SetBool("hasTalked", true);
-      
+                
         }
     }
     public bool IsAnimationPlaying(Animator animator, string animationName)
