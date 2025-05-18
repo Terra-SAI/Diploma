@@ -24,13 +24,14 @@ public class Window_GM : MonoBehaviour
     }
     void Update()
     {
-            if (isWindowDone)  return; 
-
+        if (!cameraManager.isOnWindow) return;
+            if (isWindowDone)  return;
+        continueButton.gameObject.SetActive(true);
         if (targetPosition.transform.position == windowObj.transform.position)
         {
             windowBase.transform.position = newPos.transform.position;
             isWindowDone = true;           
-            continueButton.gameObject.SetActive(true);
+
         }
     }
 

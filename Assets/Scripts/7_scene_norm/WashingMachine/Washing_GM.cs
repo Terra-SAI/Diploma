@@ -18,11 +18,12 @@ public class Washing_GM : MonoBehaviour
     public int count = 1;
 
     public bool isWashing = false;
+    public bool isActive = false;
 
     [Space]
     [SerializeField] private GameObject continueButton;
     [SerializeField] private GameObject instructions;
-
+    [SerializeField] private GameObject result;
 
     [Space]
     [SerializeField] private GameObject onButton;
@@ -30,6 +31,7 @@ public class Washing_GM : MonoBehaviour
 
     private void Start()
     {
+        result.gameObject.SetActive(false);
         instructions.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
     }
@@ -37,7 +39,10 @@ public class Washing_GM : MonoBehaviour
     private void Update()
     {
         if (isWashing) { return; }
-        if (cameraManager.isOnWash) instructions.gameObject.SetActive(true);
+        if (!cameraManager.isOnWash) return;
+        isActive = true;
+        instructions.gameObject.SetActive(true);
+        continueButton.gameObject.SetActive(true);
         if (!isOn)
         {
             isStarted = false;
@@ -55,16 +60,19 @@ public class Washing_GM : MonoBehaviour
             {
                 EnableEmission(startButton);
                 isStarted = true;
-                continueButton.gameObject.SetActive(true);
+                isWashing = true;
+                result.gameObject.SetActive(true);
+                instructions.gameObject.SetActive(false);
                 // instructions.gameObject.SetActive(true);
             }
         }
     }
     public void LoadMainScene()
     {
-        isWashing = true;
+        
         cameraManager.isOnMain = true;
         cameraManager.isOnWash = false;
+        result.gameObject.SetActive(false);
         instructions.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
         cameraManager.Switch(washingCamera, cameraMain);

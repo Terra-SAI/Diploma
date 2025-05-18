@@ -306,6 +306,7 @@ MonoBehaviour:
   sockCamera: {fileID: 7427032899981806953}
   sockSelecter: {fileID: 91489977}
   continueButton: {fileID: 861764664}
+  textResult: {fileID: 613523563}
   inventoryManager: {fileID: 8695774230395254207}
   item: {fileID: 1781806447}
 --- !u!1 &316369611 stripped
@@ -716,7 +717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &613523564
 RectTransform:
   m_ObjectHideFlags: 0
@@ -726,14 +727,14 @@ RectTransform:
   m_GameObject: {fileID: 613523563}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.31250003, y: 0.31250003, z: 0.31250003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 861764665}
+  m_Father: {fileID: 2125929230}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -21.125004, y: 264.71878}
+  m_AnchoredPosition: {x: -67.599976, y: -110.89993}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &613523565
@@ -1165,7 +1166,6 @@ RectTransform:
   m_LocalScale: {x: 3.1999998, y: 3.1999998, z: 3.1999998}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 613523564}
   - {fileID: 2131273198}
   m_Father: {fileID: 2125929230}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1629,7 +1629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2847c048e9d4c654581dd1f0ff23e4f3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.2
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2847c048e9d4c654581dd1f0ff23e4f3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2338,7 +2338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 6812313754443137044}
-  rotationSpeed: 10
+  rotationSpeed: 30
 --- !u!65 &1807978051
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2531,6 +2531,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 613523564}
   - {fileID: 861764665}
   m_Father: {fileID: 1115498695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7375,6 +7376,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8084179822880695217}
     m_Modifications:
+    - target: {fileID: 2216872955738871825, guid: d9c45858368e2cc4b917da07757f6db8, type: 3}
+      propertyPath: camManager
+      value: 
+      objectReference: {fileID: 6812313754443137044}
     - target: {fileID: 2470645419462328871, guid: d9c45858368e2cc4b917da07757f6db8, type: 3}
       propertyPath: dialog
       value: 
@@ -7423,6 +7428,10 @@ PrefabInstance:
       propertyPath: cellContainer
       value: 
       objectReference: {fileID: 2529690907981054488}
+    - target: {fileID: 7154688981876152610, guid: d9c45858368e2cc4b917da07757f6db8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7226931450851459017, guid: d9c45858368e2cc4b917da07757f6db8, type: 3}
       propertyPath: distance
       value: 70
@@ -11483,6 +11492,7 @@ MonoBehaviour:
   isOnCoder: 0
   isOnMirror: 0
   isOnDialog: 0
+  isOnPaper: 0
 --- !u!65 &6821950583847142071
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -28,6 +28,8 @@ public class LampGM : MonoBehaviour
     void Update()
     {
         if (isLightOff2) return;
+        if (!cameraManager.isOnLamp) return;
+        continueButton.gameObject.SetActive(true);
 
         if (lamObj.GetComponent<ToggleTrigger>().isDown)
         {
@@ -51,7 +53,7 @@ public class LampGM : MonoBehaviour
             }
 
             isLightOff2 = true;
-            continueButton.gameObject.SetActive(true);
+          //  continueButton.gameObject.SetActive(true);
         }
     }
 

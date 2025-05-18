@@ -37,7 +37,13 @@ public class WashingIter : MonoBehaviour
                 if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     if (Washing_GM.isWashing) return;
-                    if (inventoryManager.HasItemsWithIds(requiredItemIds))
+                    if (Washing_GM.isActive)
+                    {
+                        CamManager.isOnMain = false;
+                        CamManager.Switch(mainCamera, washingCamera);
+                        CamManager.isOnWash = true;
+                    }
+                    else if (inventoryManager.HasItemsWithIds(requiredItemIds))
                     {
                         CamManager.isOnMain = false;
                         CamManager.Switch(mainCamera, washingCamera);

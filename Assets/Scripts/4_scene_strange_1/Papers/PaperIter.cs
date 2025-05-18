@@ -15,6 +15,10 @@ public class PaperIter : MonoBehaviour
 
     void Update()
     {
+        if (!CamManager.isOnMain)
+        {
+            return;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
@@ -26,7 +30,8 @@ public class PaperIter : MonoBehaviour
 
                 if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
-                    //CamManager.isOnCoder = true;
+                    CamManager.isOnMain = false;
+                    CamManager.isOnPaper = true;
                     CamManager.Switch(mainCamera, paperCamera);
                 }
             }

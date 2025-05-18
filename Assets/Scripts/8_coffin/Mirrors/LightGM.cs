@@ -23,6 +23,7 @@ public class LightGM : MonoBehaviour
     [SerializeField] private GameObject continueButton;
 
     public bool isAlive = false;
+    public bool isActive = false;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class LightGM : MonoBehaviour
     void Update()
     {
         if (isAlive) return;
+        if (cameraManager.isOnMirror) continueButton.gameObject.SetActive(true);
 
         if (move.isAlive)
         {
@@ -47,6 +49,7 @@ public class LightGM : MonoBehaviour
             SaveManager.Instance.AddToProgress(normalParam);
 
             isAlive = true;
+            isActive = false;
         }
     }
 

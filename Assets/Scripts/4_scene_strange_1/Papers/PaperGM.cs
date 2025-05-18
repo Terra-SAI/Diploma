@@ -17,7 +17,7 @@ public class PaperGM : MonoBehaviour
     [Space]
     [SerializeField] private GameObject continueButton;
 
-    private bool isPaperDone = false;
+    public bool isPaperDone = false;
     private void Start()
     {
         continueButton.gameObject.SetActive(false);
@@ -26,11 +26,11 @@ public class PaperGM : MonoBehaviour
     void Update()
     {
         if (isPaperDone) return;
-
+       if (cameraManager.isOnPaper) continueButton.gameObject.SetActive(true);
         if (objectSpawner.isPaired)
         {
             isPaperDone = true;
-            continueButton.gameObject.SetActive(true);
+            
             papers.gameObject.SetActive(false);
         }
     }
@@ -39,6 +39,8 @@ public class PaperGM : MonoBehaviour
     {
         continueButton.gameObject.SetActive(false);
         cameraManager.Switch(paperCamera, mainCamera);
+        cameraManager.isOnPaper = false;
+        cameraManager.isOnMain = true;
 
     }
 }

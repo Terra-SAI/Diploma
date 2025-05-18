@@ -12,14 +12,14 @@ public class OldIter : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // À Ã
+        if (Input.GetMouseButtonDown(0)) 
         {
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, 1000))
             {
-                Debug.Log(hit.transform.name);
+     
                 if (hit.collider.TryGetComponent<OldItem>(out OldItem commItem) && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
                     //if (commItem.count == 2)
@@ -34,7 +34,7 @@ public class OldIter : MonoBehaviour
                 }
             }
         }
-        if (Input.GetMouseButtonDown(1)) // À Ã
+        if (Input.GetMouseButtonDown(1)) 
         {
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

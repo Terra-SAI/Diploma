@@ -37,6 +37,7 @@ public class GameManagerDish : MonoBehaviour
         {
             return;
         }
+        continueButton.gameObject.SetActive(true);
         if (dirtMaterial != null && dirtMaterial.color.a <= 0f)
         {
            isFinished = true;
@@ -48,7 +49,7 @@ public class GameManagerDish : MonoBehaviour
     void ShowEndScreen()
     {
         gameOverText.gameObject.SetActive(true);
-        continueButton.gameObject.SetActive(true);
+       
         gameOverText.text = "Тарелка чистая!";
         isGamePaused = true;
     }

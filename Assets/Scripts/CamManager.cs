@@ -29,6 +29,6 @@ public class CamManager : CameraManager
     //general scenes
     [HideInInspector]
     public bool isOnDialog = false;
-    //[HideInInspector]
-    //public bool isOnMainScene = false;
+    [HideInInspector]
+    public bool isOnPaper = false;
 }

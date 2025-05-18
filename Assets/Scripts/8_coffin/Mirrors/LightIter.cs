@@ -40,14 +40,19 @@ public class LightIter : MonoBehaviour
 
                 if (commItem != null&& Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                 {
-                    if (inventoryManager.CountItemsWithIds(requiredItemIds[0]) == 3)
+                    if (gm.isActive)
                     {
-                        inventoryManager.RemoveItem(mirror1);
-                        inventoryManager.RemoveItem(mirror2);
-                        inventoryManager.RemoveItem(mirror3);
                         CamManager.isOnMain = false;
                         CamManager.isOnMirror = true;
                         CamManager.Switch(mainCamera, lightCamera);
+                    }
+                    else if (inventoryManager.CountItemsWithIds(requiredItemIds[0]) == 3)
+                    {
+                        gm.isActive = true;
+                        inventoryManager.RemoveItem(mirror1);
+                        inventoryManager.RemoveItem(mirror2);
+                        inventoryManager.RemoveItem(mirror3);
+                       
                     }
                     else 
                     {
