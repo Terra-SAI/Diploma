@@ -15,7 +15,7 @@ public class Interaclable : MonoBehaviour
 
     public void OnHoverEnter()
     {
-        outline.OutlineWidth = 2f;
+        outline.OutlineWidth = 3f;
     }
 
     public void OnHoverExit()

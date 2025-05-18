@@ -6,7 +6,8 @@ public class SwitcherIter : MonoBehaviour
 {
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject mainLight;
-    [SerializeField] private Color color;
+    [SerializeField] private Color colorDark;
+    [SerializeField] private Color colorLight;
 
     public bool isLightOff1 = false;
 
@@ -19,7 +20,6 @@ public class SwitcherIter : MonoBehaviour
 
     void Update()
     {
-        if (isLightOff1) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
@@ -35,9 +35,18 @@ public class SwitcherIter : MonoBehaviour
                     Light light = mainLight.GetComponent<Light>();
                     if (light != null)
                     {
-                        light.color = color;
+                        if (light.color == colorLight)
+                        {
+                            light.color = colorDark;
+                            isLightOff1 = true;
+                        }
+                        else
+                        {
+                            light.color = colorLight;
+                            isLightOff1 = false;
+                        }
                     }
-                    isLightOff1 = true;
+                    
                 }
             }
         }
