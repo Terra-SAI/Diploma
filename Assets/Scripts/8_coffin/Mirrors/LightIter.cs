@@ -6,7 +6,7 @@ using UnityEngine;
 public class LightIter : MonoBehaviour
 {
     [SerializeField] private CamManager CamManager;
-
+    public dialog_new_trigger dialog;
     [Space]
     [SerializeField] private Item mirror1;
     [SerializeField] private Item mirror2;
@@ -28,6 +28,7 @@ public class LightIter : MonoBehaviour
     void Update()
     {
         if (gm.isAlive) return;
+        if (!CamManager.isOnMain) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
@@ -47,6 +48,10 @@ public class LightIter : MonoBehaviour
                         CamManager.isOnMain = false;
                         CamManager.isOnMirror = true;
                         CamManager.Switch(mainCamera, lightCamera);
+                    }
+                    else 
+                    {
+                        dialog.TriggerDialogue();
                     }
                 }
             }
