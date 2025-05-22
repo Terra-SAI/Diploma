@@ -7,6 +7,8 @@ public class cat_walking : MonoBehaviour
     [SerializeField] private Transform[] points;
     [SerializeField] private float speed = 2.0f;
     [SerializeField] private Animator animator;
+    [Space]
+    [SerializeField] private CamManager camManager;
 
     private int currentTargetIndex = 0;
     private int direction = 1; // 1 Ч вперЄд, -1 Ч назад
@@ -23,6 +25,11 @@ public class cat_walking : MonoBehaviour
 
     void Update()
     {
+        if (camManager.isOnDialog)
+        {
+            animator.SetBool("isMoving", false);
+            return;
+        }
         if (points.Length < 2) return;
 
         Transform targetPoint = points[currentTargetIndex];
