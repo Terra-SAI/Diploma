@@ -37,18 +37,20 @@ public class EndDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dialogueTrigger.canCommunicate)
+        if (IsAnimationPlaying(diaAnim, "Base Layer.show"))
         {
-           
-            
-            if (IsAnimationPlaying(diaAnim, "Base Layer.hide"))
+                cameraManager.isOnDialog = true;
+                cameraManager.isOnMain = false;
+                
+        }
+        else if (IsAnimationPlaying(diaAnim, "Base Layer.hide"))
             { 
                 if (isShown) { return; }
                 else
                 {
                     isShown = true;
-                    cameraManager.isOnDialog = true;
-                    cameraManager.isOnMain = false;
+                    //cameraManager.isOnDialog = true;
+                    //cameraManager.isOnMain = false;
                     putButton.gameObject.SetActive(true);
                     if (SaveManager.Instance.GetProgress() <= boarder)
                     {
@@ -56,7 +58,6 @@ public class EndDialogue : MonoBehaviour
                     }
                 }
             }
-        }
     }
 
     public void Put()

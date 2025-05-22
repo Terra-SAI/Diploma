@@ -11,6 +11,8 @@ public class WindowNewIter : MonoBehaviour
         [SerializeField] private GameObject mainCamera;
 
         [Space]
+        [SerializeField] private CamManager camManager;
+        [Space]
         [SerializeField] private int normalParam = 10;
         private int count;
         [Space]
@@ -42,16 +44,18 @@ public class WindowNewIter : MonoBehaviour
 
                     if (commItem != null && Vector3.Distance(this.transform.position, commItem.transform.position) <= distance)
                     {
-                        if (count < nerves)
-                        {
-                                StartDialog();
-                                count++;
-                        }
-                        else
-                        {
-                            exitButton.gameObject.SetActive(true);
-                            enterButton.gameObject.SetActive(true);
-                        }
+                    if (count < nerves)
+                    {
+                        StartDialog();
+                        count++;
+                    }
+                    else
+                    {
+                        camManager.isNearWindow = true;
+                        exitButton.gameObject.SetActive(true);
+                        enterButton.gameObject.SetActive(true);
+                        camManager.isOnMain = false;
+                    }
                     }
                 }
             }
@@ -71,6 +75,8 @@ public class WindowNewIter : MonoBehaviour
 
     public void GoIn()
     {
+        camManager.isNearWindow = false;
+        camManager.isOnMain = true;
         enterButton.gameObject.SetActive(false);
         exitButton.gameObject.SetActive(false);
     }

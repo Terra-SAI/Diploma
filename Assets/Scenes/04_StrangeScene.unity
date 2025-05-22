@@ -842,6 +842,71 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &305255726
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3129239793213616317, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: diaAnim
+      value: 
+      objectReference: {fileID: 6043842319412884144}
+    - target: {fileID: 3129239793213616317, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: camManager
+      value: 
+      objectReference: {fileID: 3225488458100747855}
+    - target: {fileID: 6892685187112554715, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: m_Name
+      value: isOnDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220258243951328382, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 549.74457
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220258243951328382, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 63.98966
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220258243951328382, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 50.165627
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220258243951328382, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220258243951328382, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220258243951328382, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220258243951328382, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220258243951328382, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220258243951328382, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220258243951328382, guid: f0aaf2548e87018469829774fa87d220, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f0aaf2548e87018469829774fa87d220, type: 3}
 --- !u!1 &333364918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2836,7 +2901,7 @@ Transform:
   m_GameObject: {fileID: 744933387}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.2671465, z: -0, w: 0.96365595}
-  m_LocalPosition: {x: 800.6, y: -7.2, z: -15.6}
+  m_LocalPosition: {x: 790.5, y: -7.2, z: 1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3013,6 +3078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 744933393}
   diaAnim: {fileID: 6043842319412884144}
+  camManager: {fileID: 3225488458100747855}
   amuletIcon1: {fileID: 488043913}
   amuletIcon2: {fileID: 1559951785652750493}
 --- !u!65 &744933395
@@ -3034,8 +3100,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 54.519592, y: 123.98613, z: 129.6159}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 54.519592, y: 123.98613, z: 174.57275}
+  m_Center: {x: -0.000018181547, y: 0, z: -22.478449}
 --- !u!114 &744933396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17699,6 +17765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog: {fileID: 1096158992730979572}
   mainCamera: {fileID: 4980258272144129805}
+  camManager: {fileID: 3225488458100747855}
   normalParam: 10
   nerves: 2
   exitButton: {fileID: 5331534611204953061}
@@ -17979,3 +18046,4 @@ SceneRoots:
   - {fileID: 178395050371173866}
   - {fileID: 849955410}
   - {fileID: 375038456}
+  - {fileID: 305255726}

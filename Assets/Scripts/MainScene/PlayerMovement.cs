@@ -19,7 +19,12 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!cameraManager.isOnMain) return;
+        if (!cameraManager.isOnMain || cameraManager.isOnDialog)
+        {
+            animator.SetBool("isWalking", false);
+            return;
+        }
+        
         
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");

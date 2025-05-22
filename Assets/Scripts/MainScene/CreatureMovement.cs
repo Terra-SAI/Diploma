@@ -8,6 +8,10 @@ public class CreatureMovement : MonoBehaviour
     [SerializeField] DialogueTrigger dialogueTrigger;
     [SerializeField] private Animator diaAnim;
 
+    [Space]
+    [SerializeField] private CamManager camManager;
+
+    [Space]
     [SerializeField] private GameObject amuletIcon1;
     [SerializeField] private GameObject amuletIcon2;
 

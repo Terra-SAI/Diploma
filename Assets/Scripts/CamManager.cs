@@ -4,31 +4,33 @@ using UnityEngine;
 
 public class CamManager : CameraManager
 {
-    [HideInInspector]
+  //  [HideInInspector]
     public bool isOnMain = false;
 
     //scene home 1
-    [HideInInspector]
+  //  [HideInInspector]
     public bool isOnDish = false;
-    [HideInInspector]
+  //  [HideInInspector]
     public bool isOnSocks = false;
-    [HideInInspector]
+  //  [HideInInspector]
     public bool isOnWindow = false;
 
     //scene home 2
-    [HideInInspector]
+  //  [HideInInspector]
     public bool isOnWash = false;
-    [HideInInspector]
+  //  [HideInInspector]
     public bool isOnLamp = false;
 
-    [HideInInspector]
+  //  [HideInInspector]
     public bool isOnCoder = false;
-    [HideInInspector]
+  //  [HideInInspector]
     public bool isOnMirror = false;
 
     //general scenes
-    [HideInInspector]
+  //  [HideInInspector]
     public bool isOnDialog = false;
-    [HideInInspector]
+  //  [HideInInspector]
     public bool isOnPaper = false;
+    //  [HideInInspector]
+    public bool isNearWindow = false;
 }
