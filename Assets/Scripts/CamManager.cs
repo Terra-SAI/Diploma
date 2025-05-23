@@ -20,8 +20,10 @@ public class CamManager : CameraManager
     public bool isOnWash = false;
   //  [HideInInspector]
     public bool isOnLamp = false;
+    //  [HideInInspector]
+    public bool isOnFood = false;
 
-  //  [HideInInspector]
+    //  [HideInInspector]
     public bool isOnCoder = false;
   //  [HideInInspector]
     public bool isOnMirror = false;
