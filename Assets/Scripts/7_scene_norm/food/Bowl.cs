@@ -7,31 +7,34 @@ using UnityEngine.UI;
 public class Bowl : MonoBehaviour
 {
     [SerializeField] private float foodInBowl = 0f;
-    [SerializeField] private float requiredFood = 80f;
+    [SerializeField] private float requiredFood = 500f;
 
-    [SerializeField] private TMP_Text percentText; // UI-элемент, отображающий % заполнения
+    [SerializeField] public TMP_Text percentText; // UI-элемент, отображающий % заполнения
+
+    [Space]
+    public bool isBowlFilled = false;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("red"))
         {
             foodInBowl += 1f;
-            Debug.Log(foodInBowl);
-           // Destroy(other.gameObject);
-
            UpdateUI();
         }
     }
 
     void UpdateUI()
     {
-        float percent = Mathf.Clamp01(foodInBowl / requiredFood) * 100f;
-        percentText.text = "Заполнено: " + Mathf.RoundToInt(percent) + "%";
 
-        if (percent >= requiredFood)
+        float percent = Mathf.Clamp01(foodInBowl / requiredFood) * 100f; 
+        if (foodInBowl >= requiredFood)
         {
             Debug.Log("Миска заполнена!");
-            // Можно вызвать анимацию, экран победы и т.д.
+            percentText.text = "Корм засыпан";
+            isBowlFilled = true;
         }
+       else percentText.text = "Заполнено: " + Mathf.RoundToInt(percent) + "%";
+
+        
     }
 }

@@ -8,11 +8,15 @@ public class FoodSpawner : MonoBehaviour
     [SerializeField] private GameObject foodPrefab;          
     [SerializeField] private Transform spawnPoint;           
     [SerializeField] private float spawnRate = 0.05f;        
-    [SerializeField] private GameObject foodCamera;          
+    [SerializeField] private GameObject foodCamera;
+    [Space]
     [SerializeField] private float minX = -5f;               
     [SerializeField] private float maxX = 5f;                
     [SerializeField] private float minY = 2f;                
-    [SerializeField] private float maxY = 8f;                
+    [SerializeField] private float maxY = 8f;
+    [Space]
+    [SerializeField] private FoodGM foodGM;
+    
 
     private bool isPouring = false;
     private Coroutine pouringCoroutine;
@@ -27,6 +31,9 @@ public class FoodSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (!foodGM.isOn || foodGM.isFinished) {
+            isPouring = false;
+                return; }
         Vector3 mousePos = Input.mousePosition;
 
         // рассчитываем Z как расстояние между камерой и пакетом
