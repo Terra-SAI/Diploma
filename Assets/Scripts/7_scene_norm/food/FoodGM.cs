@@ -17,14 +17,17 @@ public class FoodGM : MonoBehaviour
     [SerializeField] private GameObject continueButton;
     void Start()
     {
-        isOn = camManager.isOnFood;
-        continueButton.gameObject.SetActive(true);
+       
+     
+        foodCamera.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        isFinished = bowl.isBowlFilled;
+        isOn = camManager.isOnFood;
+        if (isOn) { continueButton.gameObject.SetActive(true); bowl.percentText.gameObject.SetActive(true); }
+            isFinished = bowl.isBowlFilled;
     }
     public void LoadMainScene()
     {
