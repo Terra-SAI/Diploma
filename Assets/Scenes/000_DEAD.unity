@@ -1354,6 +1354,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285882179}
   m_Mesh: {fileID: 8956276461189781062, guid: d1aec83daaa7f5943a7cef3de2bbf34d, type: 3}
+--- !u!1001 &299120080
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 627118243848165972, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 195db4e86070d564aa2f5eb7b7e17993, type: 3}
+    - target: {fileID: 2424162538298619986, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
+      propertyPath: m_Name
+      value: audio
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590580203082952854, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 442.98447
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590580203082952854, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1341.5405
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590580203082952854, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3844.549
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590580203082952854, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590580203082952854, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590580203082952854, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590580203082952854, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590580203082952854, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590580203082952854, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590580203082952854, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1767595b34a42b24e945e81135c3dc60, type: 3}
 --- !u!1 &337662760
 GameObject:
   m_ObjectHideFlags: 0
@@ -4041,6 +4102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 0}
   diaAnim: {fileID: 1336120751}
+  camManager: {fileID: 0}
   amuletIcon1: {fileID: 0}
   amuletIcon2: {fileID: 0}
 --- !u!54 &1052347571
@@ -5439,13 +5501,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78e02684dd1f3144a2309771e695d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOnMain: 0
   isOnDish: 0
   isOnSocks: 0
+  isOnWindow: 0
   isOnWash: 0
   isOnLamp: 0
+  isOnFood: 0
   isOnCoder: 0
+  isOnMirror: 0
   isOnDialog: 0
-  isOnMainScene: 0
+  isOnPaper: 0
+  isNearWindow: 0
 --- !u!4 &1291642619
 Transform:
   m_ObjectHideFlags: 0
@@ -6461,11 +6528,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogNew: {fileID: 567627620}
   dialogOld: {fileID: 1433801369}
+  dialogStart: {fileID: 0}
   portal: {fileID: 0}
   camera: {fileID: 1019879882}
   inventoryManager: {fileID: 1629421252}
   requiredItemIds: 65000000
   diamond: {fileID: 0}
+  distance: 70
 --- !u!114 &1629421255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6478,6 +6547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b431d6c061a99a4f93dcc512c10b6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 70
   mainCamera: {fileID: 1019879881}
 --- !u!114 &1629421256
 MonoBehaviour:
@@ -6494,6 +6564,7 @@ MonoBehaviour:
   CamManager: {fileID: 1291642618}
   mainCamera: {fileID: 1019879881}
   paperCamera: {fileID: 0}
+  distance: 70
 --- !u!114 &1629421257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6509,6 +6580,7 @@ MonoBehaviour:
   CamManager: {fileID: 1291642618}
   mainCamera: {fileID: 1019879881}
   coderCamera: {fileID: 0}
+  distance: 70
 --- !u!114 &1629421258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6527,6 +6599,7 @@ MonoBehaviour:
   nerves: 2
   exitButton: {fileID: 0}
   enterButton: {fileID: 0}
+  distance: 70
 --- !u!114 &1629421259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6540,6 +6613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 1019879882}
+  camManager: {fileID: 0}
 --- !u!95 &1629421260
 Animator:
   serializedVersion: 5
@@ -8305,3 +8379,4 @@ SceneRoots:
   - {fileID: 396493582}
   - {fileID: 1804121344}
   - {fileID: 276878725}
+  - {fileID: 299120080}

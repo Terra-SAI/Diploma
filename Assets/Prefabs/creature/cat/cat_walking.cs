@@ -19,7 +19,7 @@ public class cat_walking : MonoBehaviour
         {
             transform.position = points[0].position;
             currentTargetIndex = 1;
-            animator.SetBool("isMoving", true);
+            animator.SetBool("isMoving", false);
         }
     }
 
